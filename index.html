@@ -516,22 +516,79 @@
         font-size: 1.7rem;
       }
 
+      /* Nav */
+      .nav-name {
+        display: none;
+      }
+
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 0.72rem;
+      }
+
+      /* Icon row: two lines */
+      .hero-header .icon-links {
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .hero-header .icon-links .icon-link {
+        order: 1;
+      }
+
+      .hero-header .icon-links .icon-divider {
+        display: none;
+      }
+
+      .hero-header .icon-links .resume-pill {
+        order: 2;
+        flex-basis: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* News: stacked */
+      .news-list li {
+        display: block;
+        margin-bottom: 14px;
+      }
+
       .news-date {
-        font-size: 0.8rem;
+        display: block;
+        font-size: 0.75rem;
+        margin-bottom: 2px;
+      }
+
+      .news-text {
+        display: block;
+      }
+
+      /* Teaching (inside service): stacked */
+      .two-col-list li {
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .two-col-left {
+        display: block;
+        text-align: left;
+        font-size: 0.78rem;
+        margin-bottom: 2px;
+      }
+
+      .two-col-right {
+        display: block;
       }
 
       section h2 {
         font-size: 1rem;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .nav-links {
-        gap: 12px;
-      }
-
-      .nav-links a {
-        font-size: 0.82rem;
       }
     }
   </style>
@@ -583,7 +640,7 @@
             <a class="icon-link" href="https://orcid.org/0000-0002-2144-1986" target="_blank" rel="noopener" title="ORCiD">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.9-1.303 3.9-3.722 0-2.016-1.284-3.722-3.853-3.722h-2.344z"/></svg>
             </a>
-            <span style="width:1px;height:24px;background:#ddd;margin:0 12px;display:inline-block;vertical-align:middle;"></span>
+            <span class="icon-divider" style="width:1px;height:24px;background:#ddd;margin:0 12px;display:inline-block;vertical-align:middle;"></span>
             <a class="resume-pill" href="/assets/PraneetBala_Resume.pdf" target="_blank" rel="noopener">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Resume
