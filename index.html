@@ -599,14 +599,30 @@
       }
 
       /* News: stacked */
+      #news {
+        overflow-x: hidden;
+      }
+
       .news-list li {
         display: block;
         margin-bottom: 14px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .news-highlight {
+        width: 100%;
+        box-sizing: border-box;
+        margin-left: 4px;
+        margin-right: 4px;
+        padding-left: 12px;
+        padding-right: 12px;
       }
 
       .news-date {
         display: block;
         font-size: 0.75rem;
+        text-align: left;
         margin-bottom: 2px;
       }
 
@@ -614,7 +630,7 @@
         display: block;
       }
 
-      /* Teaching (inside service): stacked */
+      /* Service / Teaching: stacked */
       .two-col-list li {
         display: block;
         margin-bottom: 12px;
@@ -623,6 +639,7 @@
       .two-col-left {
         display: block;
         text-align: left;
+        color: #888;
         font-size: 0.78rem;
         margin-bottom: 2px;
       }
@@ -848,7 +865,7 @@
     <div class="container">
       <h2>News</h2>
       <ul class="news-list">
-        <li style="background:#f0f2ff;box-shadow:inset 3px 0 0 #1a237e;padding:5px 0;border-radius:4px;">
+        <li class="news-highlight" style="background:#f0f2ff;box-shadow:inset 3px 0 0 #1a237e;padding:5px 0;border-radius:4px;">
           <span class="news-date">Apr 2026</span>
           <span class="news-text">Actively seeking full-time roles in <strong>3D vision</strong>, <strong>generative modeling</strong>, and <strong>autonomous systems</strong>.</span>
         </li>
