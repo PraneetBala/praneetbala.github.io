@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Praneet C. Bala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --text: #1a1a1a;
+      --accent: #1a237e;
+      --accent-light: #e8eaf6;
+      --muted: #555;
+      --border: #e0e0e0;
+      --bg: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: block;
+      padding: 20px 24px;
+      font-size: 0.85rem;
+      color: #888;
+      text-decoration: none;
+      transition: color 0.15s;
+      max-width: 848px;
+      margin: 0 auto;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 8px 0 40px;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .page-header p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    /* ── SECTION ── */
+    .projects-section {
+      padding: 0 0 56px;
+    }
+
+    .projects-section + .projects-section {
+      border-top: 1px solid var(--border);
+      padding-top: 48px;
+    }
+
+    /* ── RESEARCH ENTRIES ── */
+    .research-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .research-entry {
+      display: flex;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid #e5e5e5;
+      align-items: flex-start;
+    }
+
+    .research-entry:last-child {
+      border-bottom: none;
+    }
+
+    .research-thumb {
+      flex-shrink: 0;
+      width: 160px;
+      height: 120px;
+      border-radius: 4px;
+      background: #f5f5f5;
+      object-fit: cover;
+    }
+
+    .research-thumb-placeholder {
+      flex-shrink: 0;
+      width: 160px;
+      height: 120px;
+      border-radius: 4px;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+      font-size: 2rem;
+    }
+
+    .research-content {
+      flex: 1;
+    }
+
+    .research-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .research-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .research-footer {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ── TAGS ── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    /* ── BADGES ── */
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    .badge-amber {
+      background: #fff3cd;
+      color: #e65100;
+    }
+
+    .badge-pub {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    /* ── PAPER LINK ── */
+    .paper-link {
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .paper-link:hover { text-decoration: underline; }
+
+    /* ── SELECTED PROJECTS GRID ── */
+    .selected-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .project-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: #c5cae9;
+      box-shadow: 0 4px 16px rgba(26,35,126,0.08);
+    }
+
+    .card-thumb {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #f5f5f5;
+      display: block;
+    }
+
+    .card-thumb-placeholder {
+      width: 100%;
+      height: 180px;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+      font-size: 2.5rem;
+    }
+
+    .card-body {
+      padding: 16px 18px;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-desc {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #aaa;
+    }
+
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .back-link { padding: 16px; }
+
+      .container { padding: 0 16px; }
+
+      .research-entry {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .research-thumb,
+      .research-thumb-placeholder {
+        width: 100%;
+        height: 160px;
+      }
+
+      .selected-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back-link" href="index.html">&larr; Praneet C. Bala</a>
+
+  <!-- PAGE HEADER -->
+  <div class="container">
+    <div class="page-header">
+      <h1>Projects</h1>
+      <p>Research and selected independent work</p>
+    </div>
+  </div>
+
+  <!-- RESEARCH PROJECTS -->
+  <div class="container">
+    <div class="projects-section">
+      <div class="section-label">Research</div>
+      <div class="research-list">
+
+        <div class="research-entry">
+          <div class="research-thumb-placeholder">&#128247;</div>
+          <div class="research-content">
+            <div class="research-title">Learning to Forecast Domain-Aware 3D Body Motion</div>
+            <div class="research-desc">
+              Developed a self-supervised framework for predicting 3D body motion from monocular video without
+              3D annotations. Combines spatiotemporal transformers with a latent diffusion model for realistic
+              long-term motion forecasting. Conditions generation on domain context derived from the input video
+              to improve out-of-distribution generalization.
+            </div>
+            <div class="research-footer">
+              <div class="tags">
+                <span class="tag">PyTorch</span>
+                <span class="tag">Self-supervised</span>
+                <span class="tag">Diffusion</span>
+              </div>
+              <span class="badge badge-amber">ECCV 2026 &mdash; Under Review</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-entry">
+          <div class="research-thumb-placeholder">&#128247;</div>
+          <div class="research-content">
+            <div class="research-title">OpenMonkeyStudio</div>
+            <div class="research-desc">
+              Engineered a 62-camera markerless motion capture system for high-fidelity 3D body tracking in
+              unconstrained environments. Built a public dataset of 195,228 annotated pose frames across diverse
+              motion sequences. Released as an open benchmark supporting research in 3D body reconstruction
+              and behavior analysis.
+            </div>
+            <div class="research-footer">
+              <div class="tags">
+                <span class="tag">TensorFlow</span>
+                <span class="tag">Multi-view</span>
+                <span class="tag">3D Reconstruction</span>
+              </div>
+              <span class="badge badge-pub">Nature Communications 2020</span>
+              <a class="paper-link" href="https://www.nature.com/articles/s41467-020-18441-5" target="_blank" rel="noopener">Paper &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-entry">
+          <div class="research-thumb-placeholder">&#128247;</div>
+          <div class="research-content">
+            <div class="research-title">Self-supervised Secondary Landmark Detection</div>
+            <div class="research-desc">
+              Developed a self-supervised method using 3D representation learning and contrastive learning to
+              detect anatomically consistent secondary landmarks without manual annotation. Validated
+              generalization across species including macaques, humans, and flies.
+            </div>
+            <div class="research-footer">
+              <div class="tags">
+                <span class="tag">TensorFlow</span>
+                <span class="tag">Contrastive Learning</span>
+                <span class="tag">Self-supervised</span>
+              </div>
+              <span class="badge badge-pub">IJCV 2023</span>
+              <a class="paper-link" href="https://link.springer.com/article/10.1007/s11263-023-01804-y" target="_blank" rel="noopener">Paper &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-entry">
+          <div class="research-thumb-placeholder">&#128247;</div>
+          <div class="research-content">
+            <div class="research-title">OpenMonkeyChallenge</div>
+            <div class="research-desc">
+              Designed and released a large-scale benchmark for articulated body pose estimation across diverse
+              primate subjects in naturalistic conditions. Dataset contains 111,529 annotated images with
+              17 body landmarks.
+            </div>
+            <div class="research-footer">
+              <div class="tags">
+                <span class="tag">TensorFlow</span>
+                <span class="tag">Pose Estimation</span>
+                <span class="tag">Benchmark</span>
+              </div>
+              <span class="badge badge-pub">IJCV 2023</span>
+              <a class="paper-link" href="https://link.springer.com/article/10.1007/s11263-022-01698-2" target="_blank" rel="noopener">Paper &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SELECTED PROJECTS -->
+    <div class="projects-section">
+      <div class="section-label">Selected Projects</div>
+      <div class="selected-grid">
+
+        <div class="project-card">
+          <div class="card-thumb-placeholder">&#128247;</div>
+          <div class="card-body">
+            <div class="card-title">CLIP-Guided Pose-Conditioned Image Generation</div>
+            <div class="card-desc">
+              Fine-tuned Stable Diffusion via ControlNet on 80,000 pose images using CLIP text conditioning
+              and 2D pose control signals. Pose transfer generalized well across appearances; facial feature
+              fidelity identified as a key failure mode.
+            </div>
+            <div class="tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">ControlNet</span>
+              <span class="tag">Stable Diffusion</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-thumb-placeholder">&#128247;</div>
+          <div class="card-body">
+            <div class="card-title">3D Scene Reconstruction via Gaussian Splatting</div>
+            <div class="card-desc">
+              Built a video-to-3D reconstruction pipeline using COLMAP and Gaussian Splatting from turntable
+              sequences. Enables interactive neural rendering and scene-level optimization.
+            </div>
+            <div class="tags">
+              <span class="tag">COLMAP</span>
+              <span class="tag">Gaussian Splatting</span>
+              <span class="tag">Neural Rendering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-thumb-placeholder">&#128247;</div>
+          <div class="card-body">
+            <div class="card-title">Recovering 3D Pose from Neural Signals</div>
+            <div class="card-desc">
+              Predicted 3D body pose from Local Field Potential signals, demonstrating cross-modal
+              representation learning between neural activity and physical motion.
+            </div>
+            <div class="tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">Multimodal</span>
+              <span class="tag">Neural Data</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-thumb-placeholder">&#128247;</div>
+          <div class="card-body">
+            <div class="card-title">Ray Tracer</div>
+            <div class="card-desc">
+              Implemented a physically-based ray tracer from scratch simulating light transport including
+              shadows, reflections, and refractions on 3D surfaces.
+            </div>
+            <div class="tags">
+              <span class="tag">C++</span>
+              <span class="tag">Rendering</span>
+              <span class="tag">Graphics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-thumb-placeholder">&#128247;</div>
+          <div class="card-body">
+            <div class="card-title">Dynamic Mode Decomposition via CUDA</div>
+            <div class="card-desc">
+              Implemented DMD for foreground/background separation in video using CUDA C, achieving 5x
+              speedup over MATLAB on GPU through optimized matrix operations.
+            </div>
+            <div class="tags">
+              <span class="tag">CUDA C</span>
+              <span class="tag">GPU</span>
+              <span class="tag">Video Processing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-thumb-placeholder">&#128247;</div>
+          <div class="card-body">
+            <div class="card-title">Aghori (Game Development)</div>
+            <div class="card-desc">
+              Developed an independent game project exploring real-time rendering, physics simulation, and
+              interactive environment design.
+            </div>
+            <div class="tags">
+              <span class="tag">Game Dev</span>
+              <span class="tag">Real-time Rendering</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Praneet C. Bala &middot; Saint Paul, MN &middot; <a href="mailto:balapraneet@gmail.com">balapraneet@gmail.com</a>
+  </footer>
+
+</body>
+</html>
