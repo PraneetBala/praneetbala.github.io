@@ -666,7 +666,7 @@
     <div class="nav-inner">
       <a class="nav-name" href="#about">PCB</a>
       <ul class="nav-links">
-        <li><a href="#">About</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#news">News</a></li>
@@ -865,7 +865,7 @@
     <div class="container">
       <h2>News</h2>
       <ul class="news-list">
-        <li class="news-highlight" style="background:#f0f2ff;box-shadow:inset 3px 0 0 #1a237e;padding:5px 0;border-radius:4px;">
+        <li class="news-highlight" style="background:#f0f2ff;box-shadow:inset 3px 0 0 #1a237e;padding:8px 12px;border-radius:0 6px 6px 0;margin-left:-12px;margin-right:-12px;">
           <span class="news-date">Apr 2026</span>
           <span class="news-text">Actively seeking full-time roles in <strong>3D vision</strong>, <strong>generative modeling</strong>, and <strong>autonomous systems</strong>.</span>
         </li>
@@ -963,28 +963,46 @@
   <script>
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
+    let clickLock = false;
 
-    window.addEventListener('scroll', () => {
-      let current = '';
-
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
-        current = 'service';
-      } else {
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop - 100;
-          if (window.scrollY >= sectionTop) {
-            current = section.getAttribute('id');
-          }
-        });
-      }
-
+    function setActive(id) {
       navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
+        if (link.getAttribute('href') === '#' + id) {
           link.classList.add('active');
         }
       });
+    }
+
+    function getActiveFromScroll() {
+      const scrollY = window.scrollY;
+      const offset = 80;
+      let current = sections[0].getAttribute('id');
+      sections.forEach(section => {
+        if (scrollY >= section.offsetTop - offset) {
+          current = section.getAttribute('id');
+        }
+      });
+      return current;
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const href = link.getAttribute('href');
+        if (!href.startsWith('#')) return;
+        const id = href.slice(1);
+        setActive(id);
+        clickLock = true;
+        setTimeout(() => { clickLock = false; }, 1000);
+      });
     });
+
+    window.addEventListener('scroll', () => {
+      if (clickLock) return;
+      setActive(getActiveFromScroll());
+    });
+
+    setActive(getActiveFromScroll());
   </script>
 </body>
 </html>
