@@ -206,6 +206,30 @@
       margin-left: 2px;
     }
 
+    /* ── TOOL CARD ── */
+    .tool-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .tool-thumb-wrapper {
+      width: 100%;
+      padding: 8px 8px 0;
+    }
+
+    .tool-thumb-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .tool-content {
+      padding: 20px;
+    }
+
     /* ── VENUE ROW ── */
     .research-venue-row {
       display: flex;
@@ -322,13 +346,18 @@
 </head>
 <body>
 
-  <a class="back-link" href="index.html">&larr; Praneet C. Bala</a>
+  <a class="back-link" href="index.html" style="display:inline-flex;align-items:center;gap:0;padding:20px 24px;text-decoration:none;">
+    <span style="background:#1a1a1a;color:#fff;padding:5px 14px;border-radius:20px;font-weight:800;letter-spacing:0.04em;font-size:0.97rem;display:inline-flex;align-items:center;gap:7px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      PCB
+    </span>
+  </a>
 
   <!-- PAGE HEADER -->
   <div class="container">
     <div class="page-header">
       <h1>Projects</h1>
-      <p>Research and selected independent work</p>
+      <p>A record of research, systems, and tools built across computer vision and generative modeling.</p>
     </div>
   </div>
 
@@ -476,6 +505,40 @@
       </div>
     </div>
 
+    <!-- TOOLS -->
+    <div class="projects-section">
+      <div class="section-label">Tools</div>
+      <div class="research-list">
+
+        <div class="tool-card">
+          <div class="tool-thumb-wrapper">
+            <img src="assets/keypoint_visualizer_teaser.jpg" alt="Pose Keypoint Visualizer" />
+          </div>
+          <div class="tool-content">
+            <div class="research-title">Pose Keypoint Visualizer</div>
+            <div class="research-desc">
+              A browser-based 3D pose keypoint viewer built with Three.js. Supports drag-and-drop JSON and NPY files, animated frame-by-frame playback, skeletal connections via adjacency matrix, motion trails, joint labels, and Bloom post-processing. Includes pre-built adjacency files for COCO 17-joint human and macaque skeletons.
+            </div>
+            <div class="research-footer">
+              <div class="tags">
+                <span class="tag">Three.js</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">WebGL</span>
+                <span class="tag">3D Visualization</span>
+                <span class="tag">Pose Estimation</span>
+              </div>
+              <div class="research-venue-row">
+                <span class="research-links">
+                  <a class="paper-link" href="https://github.com/PraneetBala/pose-keypoint-visualizer" target="_blank" rel="noopener">GitHub <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- SELECTED PROJECTS -->
     <div class="projects-section">
       <div class="section-label">Selected Projects</div>
@@ -494,6 +557,10 @@
               <span class="tag">PyTorch</span>
               <span class="tag">ControlNet</span>
               <span class="tag">Stable Diffusion</span>
+              <span class="tag">CLIP</span>
+            </div>
+            <div style="margin-top:10px;">
+              <a class="paper-link" href="https://github.com/PraneetBala/Image-generation-EMU" target="_blank" rel="noopener">GitHub <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
             </div>
           </div>
         </div>
@@ -510,22 +577,10 @@
               <span class="tag">COLMAP</span>
               <span class="tag">Gaussian Splatting</span>
               <span class="tag">Neural Rendering</span>
+              <span class="tag">Python</span>
             </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="card-thumb-placeholder">&#128247;</div>
-          <div class="card-body">
-            <div class="card-title">Recovering 3D Pose from Neural Signals</div>
-            <div class="card-desc">
-              Predicted 3D body pose from Local Field Potential signals, demonstrating cross-modal
-              representation learning between neural activity and physical motion.
-            </div>
-            <div class="tags">
-              <span class="tag">PyTorch</span>
-              <span class="tag">Multimodal</span>
-              <span class="tag">Neural Data</span>
+            <div style="margin-top:10px;">
+              <a class="paper-link" href="https://github.com/PraneetBala/gaussian-splatting-pipeline" target="_blank" rel="noopener">GitHub <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
             </div>
           </div>
         </div>
@@ -542,6 +597,46 @@
               <span class="tag">C++</span>
               <span class="tag">Rendering</span>
               <span class="tag">Graphics</span>
+              <span class="tag">Light Transport</span>
+            </div>
+            <div style="margin-top:10px;">
+              <a class="paper-link" href="https://github.com/PraneetBala/Ray-Tracing" target="_blank" rel="noopener">GitHub <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-thumb-placeholder">&#128247;</div>
+          <div class="card-body">
+            <div class="card-title">Robot Goalie</div>
+            <div class="card-desc">
+              Designed a system for a Baxter robot to track, predict, and intercept a thrown ball in real time using a Kinect camera. Computed 3D coordinates using depth and pixel data and implemented motion planning for accurate interception.
+            </div>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Robotics</span>
+              <span class="tag">Trajectory Prediction</span>
+              <span class="tag">Kinect</span>
+            </div>
+            <div style="margin-top:10px;">
+              <a class="paper-link" href="https://github.com/PraneetBala/Robot-Goalie" target="_blank" rel="noopener">GitHub <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-thumb-placeholder">&#128247;</div>
+          <div class="card-body">
+            <div class="card-title">Recovering 3D Pose from Neural Signals</div>
+            <div class="card-desc">
+              Predicted 3D body pose from Local Field Potential signals, demonstrating cross-modal
+              representation learning between neural activity and physical motion.
+            </div>
+            <div class="tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">Multimodal</span>
+              <span class="tag">Neural Data</span>
+              <span class="tag">LFP</span>
             </div>
           </div>
         </div>
@@ -558,21 +653,7 @@
               <span class="tag">CUDA C</span>
               <span class="tag">GPU</span>
               <span class="tag">Video Processing</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="card-thumb-placeholder">&#128247;</div>
-          <div class="card-body">
-            <div class="card-title">Aghori (Game Development)</div>
-            <div class="card-desc">
-              Developed an independent game project exploring real-time rendering, physics simulation, and
-              interactive environment design.
-            </div>
-            <div class="tags">
-              <span class="tag">Game Dev</span>
-              <span class="tag">Real-time Rendering</span>
+              <span class="tag">Matrix Decomposition</span>
             </div>
           </div>
         </div>
