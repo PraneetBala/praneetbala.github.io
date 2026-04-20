@@ -35,21 +35,19 @@
 
     /* ── BACK LINK ── */
     .back-link {
-      display: block;
-      padding: 20px 24px;
+      display: inline-flex;
+      padding: 20px 0;
       font-size: 0.85rem;
       color: #888;
       text-decoration: none;
       transition: color 0.15s;
-      max-width: 848px;
-      margin: 0 auto;
     }
 
     .back-link:hover { color: var(--accent); }
 
     /* ── CONTAINER ── */
     .container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -110,9 +108,9 @@
     }
 
     .research-thumb-wrapper {
-      width: 220px;
+      width: 350px;
       flex-shrink: 0;
-      height: 160px;
+      height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -151,8 +149,8 @@
 
     .research-footer {
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
       gap: 8px;
     }
 
@@ -219,7 +217,7 @@
       padding: 8px 8px 0;
     }
 
-    .tool-thumb-wrapper img {
+    .tool-thumb-wrapper video {
       width: 100%;
       height: auto;
       display: block;
@@ -233,6 +231,7 @@
     /* ── VENUE ROW ── */
     .research-venue-row {
       display: flex;
+      width: 100%;
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
@@ -346,12 +345,16 @@
 </head>
 <body>
 
-  <a class="back-link" href="index.html" style="display:inline-flex;align-items:center;gap:0;padding:20px 24px;text-decoration:none;">
-    <span style="background:#1a1a1a;color:#fff;padding:5px 14px;border-radius:20px;font-weight:800;letter-spacing:0.04em;font-size:0.97rem;display:inline-flex;align-items:center;gap:7px;">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-      PCB
-    </span>
-  </a>
+  <div style="padding: 0 24px; border-bottom: 1px solid #e0e0e0; background: #fff;">
+    <div style="max-width: 1200px; margin: 0 auto; height: 56px; display: flex; align-items: center;">
+      <a class="back-link" href="index.html" style="display:inline-flex;align-items:center;text-decoration:none;">
+        <span style="background:#1a1a1a;color:#fff;padding:5px 14px;border-radius:20px;font-weight:800;letter-spacing:0.04em;font-size:0.97rem;display:inline-flex;align-items:center;gap:7px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          PCB
+        </span>
+      </a>
+    </div>
+  </div>
 
   <!-- PAGE HEADER -->
   <div class="container">
@@ -512,7 +515,9 @@
 
         <div class="tool-card">
           <div class="tool-thumb-wrapper">
-            <img src="assets/keypoint_visualizer_teaser.jpg" alt="Pose Keypoint Visualizer" />
+            <video autoplay muted loop playsinline>
+              <source src="assets/demo.mp4" type="video/mp4" />
+            </video>
           </div>
           <div class="tool-content">
             <div class="research-title">Pose Keypoint Visualizer</div>

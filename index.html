@@ -48,7 +48,7 @@
     }
 
     .nav-inner {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -97,7 +97,7 @@
 
     /* ── WRAPPER ── */
     .container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -109,9 +109,12 @@
 
     .hero {
       display: grid;
-      grid-template-columns: 300px 1fr;
+      grid-template-columns: auto 1fr;
       gap: 40px;
       align-items: center;
+      justify-content: center;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .hero-photo {
@@ -337,8 +340,8 @@
 
     .card-footer {
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
       gap: 8px;
     }
 
@@ -755,7 +758,7 @@
                 <span class="tag">Self-supervised</span>
                 <span class="tag">Domain Adaptation</span>
               </div>
-              <span style="display:inline-block;margin-top:10px;font-size:0.78rem;font-weight:500;color:#e65100;background:#fff8e1;padding:3px 10px;border-radius:3px;">European Conference on Computer Vision, 2026 [Under Review]</span>
+              <span style="display:block;margin-top:0;font-size:0.78rem;font-weight:500;color:#e65100;background:#fff8e1;padding:3px 10px;border-radius:3px;">European Conference on Computer Vision, 2026 [Under Review]</span>
             </div>
           </div>
         </div>
