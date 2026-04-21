@@ -766,6 +766,21 @@
       .projects-row2 {
         flex-direction: column;
       }
+
+      .tool-card-side video {
+        width: 100% !important;
+        height: 260px !important;
+        border-radius: 8px 8px 0 0 !important;
+      }
+
+      .tool-card-side {
+        flex-direction: column !important;
+        align-items: stretch !important;
+      }
+
+      .tool-card-side-content {
+        padding-left: 20px !important;
+      }
     }
   </style>
 </head>
@@ -935,6 +950,24 @@
         </div>
 
       </div>
+      <div class="card tool-card-side" style="margin-top:20px;display:flex;flex-direction:row;align-items:center;">
+        <video autoplay muted loop playsinline style="width:40%;height:260px;object-fit:contain;background:#0d0d14;display:block;border-radius:8px 0 0 8px;flex-shrink:0;">
+          <source src="assets/demo.mp4" type="video/mp4" />
+        </video>
+        <div class="card-content tool-card-side-content" style="padding-left:24px;">
+          <div class="card-title">
+            <span style="display:inline-block;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;background:#e8f5e9;color:#2e7d32;padding:2px 7px;border-radius:3px;margin-bottom:6px;">Tool</span><br />
+            Pose Keypoint Visualizer
+          </div>
+          <div class="card-desc">A browser-based 3D viewer for human and animal pose keypoints. Supports drag-and-drop JSON files, animated playback, skeletal connections, motion trails, and multiple themes.</div>
+          <div class="card-footer">
+            <div class="card-links">
+              <a class="card-link" href="https://praneetbala.github.io/pose-keypoint-visualizer/" target="_blank" rel="noopener">Try it &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div style="text-align: right; margin-top: 24px;">
         <a href="projects.html" style="font-size: 0.85rem; color: #1a237e; font-weight: 500; text-decoration: none;">View all projects &rarr;</a>
       </div>
