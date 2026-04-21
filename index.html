@@ -34,7 +34,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
-      font-size: 16px;
+      font-size: 17px;
     }
 
     /* ── NAV ── */
@@ -45,6 +45,7 @@
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(6px);
       border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       padding: 0 24px;
     }
 
@@ -139,6 +140,97 @@
       font-size: 3rem;
       color: var(--accent);
     }
+
+    /* ── HERO SLIDESHOW ── */
+    .hero-slideshow {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 3px solid var(--border);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .hero-slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-slideshow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(26,35,126,0.7);
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #fff;
+      padding: 0;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 2;
+    }
+
+    .hero-slideshow:hover .hero-slideshow-btn { opacity: 1; }
+
+    .hero-slideshow-btn.prev { left: 10px; }
+    .hero-slideshow-btn.next { right: 10px; }
+
+    .hero-slideshow-btn:hover { background: #1a237e; }
+
+    .hero-slideshow-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .hero-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .hero-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #c5cae9;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      transition: background 0.2s;
+    }
+
+    .hero-dot.active { background: #1a237e; }
 
     .hero-header h1 {
       font-size: 2.2rem;
@@ -544,9 +636,12 @@
         justify-items: center;
       }
 
-      .hero-photo, .hero-photo-placeholder {
+      .hero-photo, .hero-photo-placeholder, .hero-slideshow {
         width: 220px;
         height: 220px;
+      }
+
+      .hero-slideshow-wrap {
         margin: 0 auto;
       }
 
@@ -686,13 +781,26 @@
   <section id="about" style="border-top: none;">
     <div class="container">
       <div class="hero">
-        <img
-          class="hero-photo"
-          src="/assets/profile.jpg"
-          alt="Praneet C. Bala"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="hero-photo-placeholder" style="display:none;">&#128100;</div>
+        <div class="hero-slideshow-wrap">
+          <div class="hero-slideshow" id="heroSlideshow">
+            <div class="hero-slides" id="heroSlides">
+              <div class="hero-slide"><img src="assets/Depth_Map.jpg" alt="Depth Map" /></div>
+              <div class="hero-slide"><img src="assets/RGB.jpg" alt="RGB" /></div>
+              <div class="hero-slide"><img src="assets/Canny_Edges.jpg" alt="Canny Edges" /></div>
+              <div class="hero-slide"><img src="assets/Pose_Estimate.jpg" alt="Pose Estimate" /></div>
+              <div class="hero-slide"><img src="assets/3DGS_Render.jpg" alt="3DGS Render" /></div>
+              <div class="hero-slide"><img src="assets/Depth_Map.jpg" alt="Depth Map" /></div>
+              <div class="hero-slide"><img src="assets/RGB.jpg" alt="RGB" /></div>
+            </div>
+            <button class="hero-slideshow-btn prev" id="heroPrev" aria-label="Previous photo">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="hero-slideshow-btn next" id="heroNext" aria-label="Next photo">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+          <div class="hero-dots" id="heroDots"></div>
+        </div>
         <div class="hero-header">
           <h1><span style="color:#999;">Praneet C.</span> <span style="color:#1a1a1a;">Bala</span></h1>
           <p class="subheading">I build systems that see, reconstruct, and reason about the 3D world.</p>
@@ -829,7 +937,7 @@
       <h2>Publications</h2>
 
       <div class="pub-under-review" style="margin-bottom: 24px;">
-        <strong>Bala</strong> et al., &ldquo;Learning to Forecast Domain Aware 3D Body Motion by Watching Single View Videos.&rdquo;
+        <strong>Bala</strong> et al., <strong>&ldquo;Learning to Forecast Domain Aware 3D Body Motion by Watching Single View Videos.&rdquo;</strong>
         <span class="pub-venue">European Conference on Computer Vision, 2026. <span class="pub-badge">Under Review</span></span>
       </div>
 
@@ -837,28 +945,28 @@
         <li class="pub-item">
           <span class="pub-num">[4]</span>
           <div class="pub-body">
-            <strong>Bala</strong> et al., <a class="pub-link" href="https://link.springer.com/article/10.1007/s11263-023-01804-y" target="_blank" rel="noopener">&ldquo;Self-supervised Secondary Landmark Detection via 3D Representation Learning.&rdquo;</a>
+            <strong>Bala</strong> et al., <a class="pub-link" href="https://link.springer.com/article/10.1007/s11263-023-01804-y" target="_blank" rel="noopener"><strong>&ldquo;Self-supervised Secondary Landmark Detection via 3D Representation Learning.&rdquo;</strong></a>
             <span class="pub-venue">International Journal of Computer Vision, 2023.</span>
           </div>
         </li>
         <li class="pub-item">
           <span class="pub-num">[3]</span>
           <div class="pub-body">
-            Yao, <strong>Bala</strong> et al., <a class="pub-link" href="https://link.springer.com/article/10.1007/s11263-022-01698-2" target="_blank" rel="noopener">&ldquo;OpenMonkeyChallenge: Dataset and Benchmark Challenges for Pose Estimation of Non-human Primates.&rdquo;</a>
+            Yao, <strong>Bala</strong> et al., <a class="pub-link" href="https://link.springer.com/article/10.1007/s11263-022-01698-2" target="_blank" rel="noopener"><strong>&ldquo;OpenMonkeyChallenge: Dataset and Benchmark Challenges for Pose Estimation of Non-human Primates.&rdquo;</strong></a>
             <span class="pub-venue">International Journal of Computer Vision, 2023.</span>
           </div>
         </li>
         <li class="pub-item">
           <span class="pub-num">[2]</span>
           <div class="pub-body">
-            Desai, <strong>Bala</strong> et al., <a class="pub-link" href="https://elifesciences.org/articles/86873" target="_blank" rel="noopener">&ldquo;OpenApePose: A Database of Annotated Ape Photographs for Pose Estimation.&rdquo;</a>
+            Desai, <strong>Bala</strong> et al., <a class="pub-link" href="https://elifesciences.org/articles/86873" target="_blank" rel="noopener"><strong>&ldquo;OpenApePose: A Database of Annotated Ape Photographs for Pose Estimation.&rdquo;</strong></a>
             <span class="pub-venue">eLife, 2023.</span>
           </div>
         </li>
         <li class="pub-item">
           <span class="pub-num">[1]</span>
           <div class="pub-body">
-            <strong>Bala</strong> et al., <a class="pub-link" href="https://www.nature.com/articles/s41467-020-18441-5" target="_blank" rel="noopener">&ldquo;Automated Markerless Pose Estimation in Freely Moving Macaques with OpenMonkeyStudio.&rdquo;</a>
+            <strong>Bala</strong> et al., <a class="pub-link" href="https://www.nature.com/articles/s41467-020-18441-5" target="_blank" rel="noopener"><strong>&ldquo;Automated Markerless Pose Estimation in Freely Moving Macaques with OpenMonkeyStudio.&rdquo;</strong></a>
             <span class="pub-venue">Nature Communications, 2020.</span>
           </div>
         </li>
@@ -1009,6 +1117,62 @@
     });
 
     setActive(getActiveFromScroll());
+  </script>
+
+  <script>
+    (function () {
+      const track = document.getElementById('heroSlides');
+      const dotsContainer = document.getElementById('heroDots');
+      // DOM layout: [clone-last, s1, s2, s3, s4, s5, clone-first]
+      // indices:         0        1   2   3   4   5       6
+      const N = 5;
+      let current = 1; // start on real first slide
+      let transitioning = false;
+
+      for (let i = 0; i < N; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to photo ' + (i + 1));
+        dot.addEventListener('click', () => { if (!transitioning) goTo(i + 1); });
+        dotsContainer.appendChild(dot);
+      }
+
+      function updateDots() {
+        const dotIdx = (current - 1 + N) % N;
+        dotsContainer.querySelectorAll('.hero-dot').forEach((d, i) =>
+          d.classList.toggle('active', i === dotIdx)
+        );
+      }
+
+      function goTo(idx, animate) {
+        if (animate === false) {
+          track.style.transition = 'none';
+          current = idx;
+          track.style.transform = 'translateX(-' + (current * 100) + '%)';
+          void track.offsetHeight; // force reflow before restoring transition
+          track.style.transition = '';
+          updateDots();
+        } else {
+          transitioning = true;
+          current = idx;
+          track.style.transform = 'translateX(-' + (current * 100) + '%)';
+          updateDots();
+        }
+      }
+
+      track.addEventListener('transitionend', () => {
+        transitioning = false;
+        if (current === N + 1) goTo(1, false);      // reached clone-first → snap to real first
+        else if (current === 0) goTo(N, false);     // reached clone-last → snap to real last
+      });
+
+      goTo(1, false); // position without animation
+
+      setInterval(() => { if (!transitioning) goTo(current + 1); }, 4000);
+
+      document.getElementById('heroPrev').addEventListener('click', () => { if (!transitioning) goTo(current - 1); });
+      document.getElementById('heroNext').addEventListener('click', () => { if (!transitioning) goTo(current + 1); });
+    })();
   </script>
 </body>
 </html>
