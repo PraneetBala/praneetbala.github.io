@@ -799,6 +799,7 @@
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
             </button>
           </div>
+          <div id="heroLabel" style="font-size:0.8rem;color:#888;text-align:center;margin-bottom:6px;letter-spacing:0.05em;">RGB</div>
           <div class="hero-dots" id="heroDots"></div>
         </div>
         <div class="hero-header">
@@ -1123,9 +1124,11 @@
     (function () {
       const track = document.getElementById('heroSlides');
       const dotsContainer = document.getElementById('heroDots');
+      const labelEl = document.getElementById('heroLabel');
       // DOM layout: [clone-last, s1, s2, s3, s4, s5, clone-first]
       // indices:         0        1   2   3   4   5       6
       const N = 5;
+      const LABELS = ['RGB', 'Canny Edges', 'Pixel Art', '2D Gaussian', 'Pose Estimate'];
       let current = 1; // start on real first slide
       let transitioning = false;
 
@@ -1142,6 +1145,7 @@
         dotsContainer.querySelectorAll('.hero-dot').forEach((d, i) =>
           d.classList.toggle('active', i === dotIdx)
         );
+        labelEl.textContent = LABELS[dotIdx];
       }
 
       function goTo(idx, animate) {
