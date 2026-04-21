@@ -387,7 +387,7 @@
     .card {
       display: flex;
       flex-direction: column;
-      border: 1px solid #e0e0e0;
+      border: 1px solid var(--border);
       border-radius: 12px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       overflow: hidden;
@@ -782,7 +782,127 @@
         padding-left: 20px !important;
       }
     }
+
+    /* ── HERO NAME ── */
+    .name-first { color: #999; }
+    .name-last  { color: #1a1a1a; }
+
+    /* ── VENUE BADGES (inline-styled spans) ── */
+    [data-theme="dark"] .venue-badge {
+      background: #2a2a2a !important;
+      color: #aaa !important;
+    }
+    [data-theme="dark"] .venue-badge-amber {
+      background: #2a2200 !important;
+      color: #ffb74d !important;
+    }
+
+    /* ── THEME TOGGLE BUTTON ── */
+    #themeToggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+      line-height: 0;
+    }
+    #themeToggle:hover {
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+    .theme-icon-sun  { display: none; }
+    .theme-icon-moon { display: block; }
+    [data-theme="dark"] .theme-icon-sun  { display: block; }
+    [data-theme="dark"] .theme-icon-moon { display: none; }
+
+    /* ── DARK MODE ── */
+    [data-theme="dark"] {
+      --bg: #1a1a1a;
+      --text: #e8e8e8;
+      --muted: #aaa;
+      --border: #333;
+      --accent: #5c6bc0;
+      --accent-light: #1e2147;
+      --card-hover-shadow: 0 4px 16px rgba(26,35,126,0.25);
+    }
+
+    [data-theme="dark"] .nav-links a.active {
+      color: #5c6bc0;
+      border-bottom-color: #5c6bc0;
+    }
+
+    [data-theme="dark"] nav {
+      background: rgba(26,26,26,0.95);
+    }
+
+    [data-theme="dark"] .nav-name {
+      background: #e0e0e0;
+      color: #1a1a1a;
+    }
+    [data-theme="dark"] .nav-name:hover {
+      background: #ccc;
+    }
+
+    [data-theme="dark"] .icon-link {
+      background: #2e2e2e;
+    }
+    [data-theme="dark"] .icon-link:hover {
+      background: var(--accent);
+    }
+
+    [data-theme="dark"] .resume-pill {
+      background: #2e2e2e;
+    }
+    [data-theme="dark"] .resume-pill:hover {
+      background: #444;
+    }
+
+    [data-theme="dark"] .name-last {
+      color: #e8e8e8;
+    }
+
+    [data-theme="dark"] .card {
+      background: #242424;
+    }
+
+    [data-theme="dark"] .pub-under-review {
+      background: #2a2200;
+    }
+
+    [data-theme="dark"] .pub-badge {
+      background: #3a2e00;
+      color: #ffb74d;
+    }
+
+    [data-theme="dark"] .news-highlight {
+      background: #1e2147 !important;
+    }
+
+    [data-theme="dark"] .hero-dot {
+      background: #3a3f6e;
+    }
+    [data-theme="dark"] .hero-dot.active {
+      background: #5c6bc0;
+    }
+
+    [data-theme="dark"] .service-divider {
+      background: linear-gradient(to right, transparent, #444, transparent);
+    }
+
+    [data-theme="dark"] a[href="projects.html"] {
+      color: #7986cb !important;
+    }
+
+    [data-theme="dark"] footer a {
+      color: #7986cb;
+    }
   </style>
+  <script>(function(){var s=localStorage.getItem('pcb-theme');if(!s)s=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',s);})();</script>
 </head>
 <body>
 
@@ -796,6 +916,12 @@
         <li><a href="#publications">Publications</a></li>
         <li><a href="#news">News</a></li>
         <li><a href="#service">Service</a></li>
+        <li>
+          <button id="themeToggle" aria-label="Toggle dark mode">
+            <svg class="theme-icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="theme-icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+        </li>
         <li><a href="/assets/PraneetBala_CV.pdf" target="_blank">CV<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:middle;opacity:0.6;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
       </ul>
     </div>
@@ -827,7 +953,7 @@
           <div class="hero-dots" id="heroDots"></div>
         </div>
         <div class="hero-header">
-          <h1><span style="color:#999;">Praneet C.</span> <span style="color:#1a1a1a;">Bala</span></h1>
+          <h1><span class="name-first">Praneet C.</span> <span class="name-last">Bala</span></h1>
           <p class="subheading">I build systems that see, reconstruct, and reason about the 3D world.</p>
           <div class="icon-links">
             <a class="icon-link" href="https://www.linkedin.com/in/praneet-bala" target="_blank" rel="noopener" title="LinkedIn">
@@ -892,7 +1018,7 @@
                 <span class="tag">Self-supervised</span>
                 <span class="tag">Domain Adaptation</span>
               </div>
-              <span style="display:block;margin-top:0;font-size:0.78rem;font-weight:500;color:#e65100;background:#fff8e1;padding:3px 10px;border-radius:3px;">European Conference on Computer Vision, 2026 [Under Review]</span>
+              <span class="venue-badge venue-badge-amber" style="display:block;margin-top:0;font-size:0.78rem;font-weight:500;color:#e65100;background:#fff8e1;padding:3px 10px;border-radius:3px;">European Conference on Computer Vision, 2026 [Under Review]</span>
             </div>
           </div>
         </div>
@@ -918,7 +1044,7 @@
                   <span class="tag">3D Representation Learning</span>
                   <span class="tag">Pose Estimation</span>
                 </div>
-                <span style="display:inline-block;margin-top:10px;font-size:0.78rem;font-weight:500;color:#666;background:#f5f5f5;padding:3px 10px;border-radius:3px;">International Journal of Computer Vision, 2023</span>
+                <span class="venue-badge" style="display:inline-block;margin-top:10px;font-size:0.78rem;font-weight:500;color:#666;background:#f5f5f5;padding:3px 10px;border-radius:3px;">International Journal of Computer Vision, 2023</span>
               </div>
             </div>
           </div>
@@ -942,7 +1068,7 @@
                   <span class="tag">3D Reconstruction</span>
                   <span class="tag">Pose Estimation</span>
                 </div>
-                <span style="display:inline-block;margin-top:10px;font-size:0.78rem;font-weight:500;color:#666;background:#f5f5f5;padding:3px 10px;border-radius:3px;">Nature Communications, 2020</span>
+                <span class="venue-badge" style="display:inline-block;margin-top:10px;font-size:0.78rem;font-weight:500;color:#666;background:#f5f5f5;padding:3px 10px;border-radius:3px;">Nature Communications, 2020</span>
               </div>
             </div>
           </div>
@@ -970,7 +1096,7 @@
       </div>
 
       <div style="text-align: right; margin-top: 24px;">
-        <a href="projects.html" style="font-size: 0.85rem; color: #1a237e; font-weight: 500; text-decoration: none;">View all projects &rarr;</a>
+        <a href="projects.html" style="font-size: 1rem; color: #1a237e; font-weight: 500; text-decoration: none;">View all projects &rarr;</a>
       </div>
     </div>
   </section>
@@ -1219,6 +1345,18 @@
 
       document.getElementById('heroPrev').addEventListener('click', () => { if (!transitioning) goTo(current - 1); });
       document.getElementById('heroNext').addEventListener('click', () => { if (!transitioning) goTo(current + 1); });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('themeToggle');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('pcb-theme', next);
+      });
     })();
   </script>
 </body>
