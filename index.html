@@ -1392,5 +1392,17 @@
       });
     })();
   </script>
+
+  <script>
+    (function() {
+      var heroBg = document.getElementById('heroBg');
+      function updateParallax() {
+        var scrolled = window.scrollY;
+        var rate = scrolled * 0.3;
+        heroBg.style.transform = 'translateY(' + rate + 'px)';
+      }
+      window.addEventListener('scroll', updateParallax, { passive: true });
+    })();
+  </script>
 </body>
 </html>
