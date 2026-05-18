@@ -124,6 +124,13 @@
     /* ── HERO ── */
     #about {
       padding: 64px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #about .container {
+      position: relative;
+      z-index: 1;
     }
 
     .hero {
@@ -920,6 +927,10 @@
     [data-theme="dark"] .card-desc {
       color: #aaa !important;
     }
+
+    [data-theme="dark"] #heroBg {
+      opacity: 0.28;
+    }
   </style>
   <script>(function(){var s=localStorage.getItem('pcb-theme');if(!s)s=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',s);})();</script>
 </head>
@@ -948,6 +959,9 @@
 
   <!-- HERO / BIO -->
   <section id="about" style="border-top: none;">
+    <video autoplay muted loop playsinline id="heroBg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.18;z-index:0;pointer-events:none;">
+      <source src="assets/hero_bg.mp4" type="video/mp4" />
+    </video>
     <div class="container">
       <div class="hero">
         <div class="hero-slideshow-wrap">
