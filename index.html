@@ -23,7 +23,7 @@
   <title>Praneet Bala</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a1a1a'/><text y='72' x='50' text-anchor='middle' font-size='52' font-family='Inter,sans-serif' font-weight='700' fill='white'>PCB</text></svg>" />
   <style>
     *, *::before, *::after {
@@ -1149,6 +1149,14 @@
 
     /* nav: brand on the left, tabs on the right */
     .nav-links { margin-left: auto; }
+
+    /* research areas line (replaces the longer blurb) */
+    .hero-topics { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0;
+      font-size: clamp(1rem, 1.15vw, 1.2rem); font-weight: 500; letter-spacing: 0.01em; color: var(--wada-mauve); }
+    .hero-topics .sep { color: var(--wada-lake); font-weight: 700; }
+
+    /* emphasised verbs in the tagline */
+    .hero-tagline em { font-style: italic; font-weight: 500; color: var(--wada-mauve); }
   </style>
 </head>
 <body>
@@ -1205,22 +1213,22 @@
           <div class="hero-name">
             <h1 class="hero-h1"><span class="name-first">Praneet</span> <span class="name-last">Bala</span></h1>
             <span class="hero-rule" aria-hidden="true"></span>
-            <p class="hero-tagline"><span class="tl">I build systems that see,</span> <span class="tl">reconstruct, and reason</span> <span class="tl">about the 3D world.</span></p>
+            <p class="hero-tagline"><span class="tl">I build systems that <em>see</em>,</span> <span class="tl"><em>reconstruct</em>, and <em>reason</em></span> <span class="tl">about the 3D world.</span></p>
           </div>
         </div>
         <div class="hero-intro">
-            <p class="hero-blurb">I&rsquo;m a researcher in computer vision, graphics, and generative models, with a focus on 3D reconstruction, human and animal motion understanding, and world models.</p>
+            <p class="hero-topics"><span>3D reconstruction</span><span class="sep" aria-hidden="true">&middot;</span><span>Human motion</span><span class="sep" aria-hidden="true">&middot;</span><span>World models</span></p>
           </div>
 
         <div class="hero-meta-row">
           <ul class="hero-meta">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5 12 5l10 4.5-10 4.5z"/><path d="M6 11.6V16c0 1.2 2.7 2.6 6 2.6s6-1.4 6-2.6v-4.4"/><path d="M22 9.5V15"/></svg>
-              <span>Ph.D., Computer Science<br />University of Minnesota, Twin Cities</span>
+              <span>Ph.D., Computer Science, University of Minnesota, Twin Cities</span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5s-7-6.3-7-11.5a7 7 0 0 1 14 0c0 5.2-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></svg>
-              <span>Minneapolis, MN</span>
+              <span>Saint Paul, MN</span>
             </li>
           </ul>
         </div>
@@ -1515,7 +1523,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>Praneet Bala · Minneapolis, MN · <a href="mailto:balapraneet@gmail.com">balapraneet@gmail.com</a></p>
+      <p>Praneet Bala · Saint Paul, MN · <a href="mailto:balapraneet@gmail.com">balapraneet@gmail.com</a></p>
     </div>
   </footer>
 
