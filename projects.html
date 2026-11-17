@@ -11,7 +11,7 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects: PCBala</title>
+  <title>Projects · Praneet Bala</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -397,6 +397,19 @@
     [data-theme="dark"] footer a {
       color: #7986cb;
     }
+
+    /* Dimension (game jam) card */
+    .dim-thumb { height: 180px; display: flex; align-items: center; justify-content: center; color: #c7a3d9;
+      background: radial-gradient(240px 140px at 50% 50%, rgba(75, 51, 153, 0.55), transparent 75%), #121128; }
+    img.dim-thumb { width: 100%; object-fit: cover; object-position: center; display: block; }
+    .chip-gamejam { display: inline-block; vertical-align: middle; margin-right: 6px; font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 7px; border-radius: 3px; color: #f3dbe1; background: rgba(215, 52, 79, 0.25); }
+    .dim-role { display: inline-block; margin-top: 8px; }
+
+    /* workspace render card */
+    .room-thumb { display: flex; align-items: center; justify-content: center; height: 180px; overflow: hidden;
+      background: radial-gradient(260px 170px at 50% 55%, rgba(75, 51, 153, 0.6), transparent 75%), #121128; }
+    .room-thumb img { height: 168px; width: auto; display: block; }
   </style>
 </head>
 <body>
@@ -427,6 +440,32 @@
       <div class="research-list">
 
         <div class="research-entry">
+          <div class="research-thumb-wrapper"><video autoplay muted loop playsinline poster="assets/exo_ego_teaser.webp" style="width:100%;height:100%;object-fit:contain;background:#d9d9de;display:block;border-radius:8px;" aria-label="Demo: multi-view capture, calibration, SMPL-X body fitting and scene reconstruction in the viewer, with the head-mounted camera view and a foot-speed graph"><source src="assets/exo_ego_demo.mp4" type="video/mp4" /></video></div>
+          <div class="research-content">
+            <div class="research-title">Exo-to-Ego World Modeling</div>
+            <div class="research-desc">
+              Reconstructs a metric 3D scene with Gaussian splatting from a calibrated multi-view rig, fits SMPL-X body
+              models within it, and localizes a head-mounted ego camera to recover the subject&rsquo;s own view.
+            </div>
+            <div class="research-footer">
+              <div class="tags">
+                <span class="tag">PyTorch</span>
+                <span class="tag">Gaussian Splatting</span>
+                <span class="tag">SMPL-X</span>
+                <span class="tag">Multi-view Geometry</span>
+                <span class="tag">Egocentric Vision</span>
+              </div>
+              <div class="research-venue-row">
+                <span class="research-venue">Ongoing</span>
+                <span class="research-links">
+                  <a class="paper-link" href="https://lnkd.in/p/gs2N6kBH" target="_blank" rel="noopener">Discussion on LinkedIn <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-entry">
           <div class="research-thumb-wrapper"><img src="assets/forecasting_teaser.png" alt="Learning to Forecast Domain-Aware 3D Body Motion" /></div>
           <div class="research-content">
             <div class="research-title">Learning to Forecast Domain-Aware 3D Body Motion</div>
@@ -446,8 +485,7 @@
                 <span class="tag">Monocular Video</span>
               </div>
               <div class="research-venue-row">
-                <span class="research-venue">European Conference on Computer Vision, 2026</span>
-                <span class="badge badge-amber" style="text-transform:none;">Under Review</span>
+                <span class="research-venue">Manuscript in preparation</span>
               </div>
             </div>
           </div>
@@ -608,6 +646,49 @@
       <div class="selected-grid">
 
         <div class="project-card">
+          <img class="dim-thumb" src="assets/dimension_thumb.webp" width="794" height="425" loading="lazy" alt="Dimension gameplay: the player runs down a red-lit 3D corridor toward an emergency exit, with a countdown timer" />
+          <div class="card-body">
+            <div class="card-title"><span class="chip-gamejam">Game jam</span> Dimension</div>
+            <div class="card-desc">
+              A puzzle game in which reality is a file system: renaming a file in a terminal changes the world around you.
+              The player moves between line, plane, and 3D perspectives to escape a facility. Built in four days with the
+              ThunderOps team for the 2026 Epic AI MegaJam.
+              <br /><span class="dim-role"><strong>My role:</strong> world building (map design and creation), character design and animation, and the puzzles for the final level.</span>
+            </div>
+            <div class="tags">
+              <span class="tag">Unreal Engine 5.9</span>
+              <span class="tag">Level design</span>
+              <span class="tag">Character animation</span>
+              <span class="tag">Game design</span>
+            </div>
+            <div style="margin-top:10px;">
+              <a class="paper-link" href="https://mixingmacaque.itch.io/dimension" target="_blank" rel="noopener">Play on itch.io &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <a class="room-thumb" href="room.html" aria-label="Explore the workspace in 3D">
+            <img src="room/hero_sm.webp" alt="Isometric Blender render of my workspace at night, with a low-poly character of me at the desk" loading="lazy" width="600" height="547" />
+          </a>
+          <div class="card-body">
+            <div class="card-title">Isometric Workspace &amp; Self-Character</div>
+            <div class="card-desc">
+              A Blender scene of my workspace with a low-poly character of me, rendered for this site and explorable in 3D.
+            </div>
+            <div class="tags">
+              <span class="tag">Blender</span>
+              <span class="tag">3D modeling</span>
+              <span class="tag">Lighting</span>
+              <span class="tag">Rendering</span>
+            </div>
+            <div style="margin-top:10px;">
+              <a class="paper-link" href="room.html">Explore in 3D &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
           <img src="assets/controlnet_teaser.png" alt="Pose skeleton control signals and macaque reconstruction" style="width:100%;height:180px;object-fit:contain;background:#0d0d0d;display:block;" />
           <div class="card-body">
             <div class="card-title">CLIP-Guided Pose-Conditioned Image Generation</div>
@@ -632,6 +713,7 @@
             <div class="card-desc">
               Built a video-to-3D reconstruction pipeline using COLMAP and Gaussian Splatting from turntable
               sequences. Enables interactive neural rendering and scene-level optimization.
+              Precursor to the exo-to-ego pipeline.
             </div>
             <div class="tags">
               <span class="tag">COLMAP</span>
@@ -690,8 +772,8 @@
           <div class="card-body">
             <div class="card-title">Recovering 3D Pose from Neural Signals</div>
             <div class="card-desc">
-              Predicted 3D body pose from Local Field Potential signals, demonstrating cross-modal
-              representation learning between neural activity and physical motion.
+              Decoded behavioral state and coarse body pose from local field potential (LFP) signals, using STFT
+              spectrograms with CNN/MLP models to classify activities and predict a gravity-aligned mean pose.
             </div>
             <div class="tags">
               <span class="tag">PyTorch</span>

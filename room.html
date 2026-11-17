@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Explore the Room · Praneet Bala</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a1a1a'/><text y='72' x='50' text-anchor='middle' font-size='52' font-family='Inter,sans-serif' font-weight='700' fill='white'>PCB</text></svg>" />
 <meta name="description" content="An interactive 3D model of Praneet Bala's workspace. Drag to look around." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,6 +33,10 @@
     padding: 8px 16px; border-radius: 999px; font-size: 0.85rem; color: #e6e1ff; text-align: center;
     background: rgba(20, 16, 50, 0.6); border: 1px solid rgba(190, 170, 255, 0.25); transition: opacity 0.6s ease; }
   .note.is-hidden { opacity: 0; pointer-events: none; }
+  .foot { position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 2; width: min(760px, calc(100vw - 32px));
+    display: flex; flex-direction: column; align-items: center; gap: 8px; pointer-events: none; }
+  .foot .note { position: static; transform: none; }
+  .credit { margin: 0; font-size: 0.8rem; line-height: 1.5; text-align: center; color: #c4bdd8; text-shadow: 0 1px 6px rgba(10, 6, 30, 0.9); }
   @media (max-width: 520px) { .title { display: none; } }
 </style>
 <script type="importmap">
@@ -53,7 +58,10 @@
   </a>
   <span class="title">Praneet&rsquo;s workspace</span>
 </div>
-<p class="note" id="note" role="status">Loading the room&hellip;</p>
+<div class="foot">
+  <p class="note" id="note" role="status">Loading the room&hellip;</p>
+  <p class="credit">A 3D model of my workspace, built in Blender: modeling, texturing, lighting, and a low-poly, animated character of me. The monitor plays a recording of my multi-view viewer.</p>
+</div>
 
 <script type="module">
   const el = document.getElementById('room');

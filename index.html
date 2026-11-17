@@ -12,15 +12,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta property="og:title" content="Praneet Bala" />
-  <meta property="og:description" content="Ph.D. Candidate in Computer Science at UMN. Specializing in 3D Computer Vision, self-supervised learning, and generative modeling." />
+  <meta property="og:description" content="Praneet Bala, 3D computer vision researcher: multi-view reconstruction, human motion, and world models." />
   <meta property="og:image" content="https://balapraneet.com/assets/og_image.jpg" />
   <meta property="og:url" content="https://balapraneet.com" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Praneet Bala" />
-  <meta name="twitter:description" content="Ph.D. Candidate in Computer Science at UMN. Specializing in 3D Computer Vision, self-supervised learning, and generative modeling." />
+  <meta name="twitter:description" content="Praneet Bala, 3D computer vision researcher: multi-view reconstruction, human motion, and world models." />
   <meta name="twitter:image" content="https://balapraneet.com/assets/og_image.jpg" />
   <title>Praneet Bala</title>
+  <meta name="description" content="Praneet Bala, 3D computer vision researcher: multi-view reconstruction, human motion, and world models." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
@@ -1157,6 +1158,57 @@
 
     /* emphasised verbs in the tagline */
     .hero-tagline em { font-style: italic; font-weight: 500; color: var(--wada-mauve); }
+
+    /* degree line: degree leads, school follows */
+    .hero-meta .meta-degree { font-weight: 600; color: #fff; letter-spacing: 0.005em; }
+    .hero-meta .meta-sep, .hero-meta .meta-school { color: var(--hero-muted); font-weight: 400; }
+
+    /* neutral status tag + neutral in-prep publication entry (no yellow) */
+    .card .tag-status { align-self: flex-start; font-style: italic; }
+    [data-theme="dark"] .pub-under-review { background: rgba(199, 163, 217, 0.05); border-left: 3px solid rgba(199, 163, 217, 0.35); }
+    [data-theme="dark"] .news-highlight { background: rgba(75, 51, 153, 0.28) !important; box-shadow: inset 3px 0 0 var(--wada-lake); }
+
+    /* game-jam card */
+    .game-thumb {
+      width: 40%; height: 200px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      border-radius: 8px 0 0 8px; color: var(--wada-mauve);
+      background: radial-gradient(260px 160px at 50% 50%, rgba(75, 51, 153, 0.55), transparent 75%), #121128;
+    }
+    img.game-thumb { object-fit: cover; object-position: center; display: block; }
+    .game-thumb svg line, .game-thumb svg rect { color: var(--wada-mauve); }
+    .chip-gamejam {
+      display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 2px 7px; border-radius: 3px; margin-bottom: 6px; color: #f3dbe1; background: rgba(215, 52, 79, 0.22);
+    }
+    @media (max-width: 640px) { .game-thumb { width: 100%; height: 150px; border-radius: 8px 8px 0 0; } }
+
+    .game-role { margin: 8px 0 0; font-size: 0.88rem; line-height: 1.6; color: var(--hero-muted); }
+    .game-role strong { color: var(--text); font-weight: 600; }
+    .game-card .card-footer { margin-top: 12px; }
+
+    /* readable muted text on Dull Violet Black: lavender-grey instead of neutral #888 (all >= 4.5:1, also on the highlighted news row) */
+    [data-theme="dark"] .news-date, [data-theme="dark"] .two-col-left, [data-theme="dark"] .service-sublabel,
+    [data-theme="dark"] .talk-venue, [data-theme="dark"] .pub-venue { color: #a8a3c4; }
+
+    /* featured current-work card: image left, text right */
+    .feature-card { display: flex; flex-direction: row; align-items: center; margin-bottom: 20px; }
+    .feature-media { flex: 0 0 55%; padding: 8px; }
+    .feature-media img { display: block; width: 100%; height: auto; border-radius: 8px; }
+    .feature-content { flex: 1 1 auto; padding-left: 16px; }
+    .feature-card .card-title { font-size: 1.15rem; }
+    @media (max-width: 860px) {
+      .feature-card { flex-direction: column; align-items: stretch; }
+      .feature-media { flex: none; padding: 8px 8px 0; }
+      .feature-content { padding-left: 20px; }
+    }
+
+    .feature-media { display: flex; flex-direction: column; gap: 8px; }
+    .feature-video { display: block; width: 100%; height: auto; aspect-ratio: 960 / 706; border-radius: 8px; background: #d9d9de; object-fit: cover; }
+    .feature-discuss { display: inline-block; margin-top: 14px; font-size: 0.9rem; font-weight: 500; color: var(--wada-mauve); text-decoration: none; padding: 0 2px 2px; }
+    .feature-discuss:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Blender credit under the hero room */
+    .room-credit { margin: 2px 0 14px; font-size: 0.85rem; font-style: italic; letter-spacing: 0.01em; color: var(--hero-muted); text-align: center; }
   </style>
 </head>
 <body>
@@ -1174,7 +1226,6 @@
         <li><a href="#publications">Publications</a></li>
         <li><a href="#news">News</a></li>
         <li><a href="#service">Service</a></li>
-        <li><a href="/assets/PraneetBala_CV.pdf" target="_blank">CV</a></li>
       </ul>
     </div>
   </nav>
@@ -1188,6 +1239,7 @@
                width="900" height="820" fetchpriority="high" decoding="async"
                alt="Isometric 3D render of my workspace at night: me at an L-shaped desk with two monitors, a whiteboard, posters and a city view through the window" />
         </div>
+        <p class="room-credit">Modeled, lit, and rendered by me in Blender.</p>
         <a class="btn btn-ghost btn-explore" href="room.html">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 2.5 20.5 7v10L12 21.5 3.5 17V7z"/><path d="M3.5 7 12 11.5 20.5 7M12 11.5v10"/></svg>
           Explore the Room
@@ -1224,7 +1276,7 @@
           <ul class="hero-meta">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5 12 5l10 4.5-10 4.5z"/><path d="M6 11.6V16c0 1.2 2.7 2.6 6 2.6s6-1.4 6-2.6v-4.4"/><path d="M22 9.5V15"/></svg>
-              <span>Ph.D., Computer Science, University of Minnesota, Twin Cities</span>
+              <span><strong class="meta-degree">Ph.D., Computer Science</strong><span class="meta-sep">, </span><span class="meta-school">University of Minnesota, Twin Cities</span></span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5s-7-6.3-7-11.5a7 7 0 0 1 14 0c0 5.2-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></svg>
@@ -1264,11 +1316,11 @@
     <div class="hero-about">
       <div class="hero-bio">
         <p>
-          I&rsquo;m a computer vision researcher with a Ph.D. from the <a href="https://twin-cities.umn.edu/" target="_blank" rel="noopener" class="bio-link">University of Minnesota</a>, advised by
-          <a href="https://www-users.cse.umn.edu/~hspark/" target="_blank" rel="noopener" class="bio-link">Dr.&nbsp;Hyun&nbsp;Soo&nbsp;Park</a>, <a href="https://www.zimmermannlab.com/" target="_blank" rel="noopener" class="bio-link">Dr.&nbsp;Jan&nbsp;Zimmermann</a>, and <a href="https://www-users.cse.umn.edu/~sjguy/" target="_blank" rel="noopener" class="bio-link">Dr.&nbsp;Stephen&nbsp;J.&nbsp;Guy</a>.
+          I recover 3D structure and motion from cameras, grounded in multi-view geometry. I did my Ph.D. at the <a href="https://twin-cities.umn.edu/" target="_blank" rel="noopener" class="bio-link">University of Minnesota</a>,
+          advised by <a href="https://www-users.cse.umn.edu/~hspark/" target="_blank" rel="noopener" class="bio-link">Dr.&nbsp;Hyun&nbsp;Soo&nbsp;Park</a>, <a href="https://www.zimmermannlab.com/" target="_blank" rel="noopener" class="bio-link">Dr.&nbsp;Jan&nbsp;Zimmermann</a>, and <a href="https://www-users.cse.umn.edu/~sjguy/" target="_blank" rel="noopener" class="bio-link">Dr.&nbsp;Stephen&nbsp;J.&nbsp;Guy</a>.
         </p>
         <p>
-          I work on recovering 3D structure and motion from cameras using multi-view geometry. My thesis built a 62-camera capture system,
+          My thesis built a 62-camera capture system,
           used geometric consistency to learn 3D pose with minimal supervision, and lifted single-view video into forecastable 3D motion.
         </p>
         <p>
@@ -1286,6 +1338,31 @@
       <h2>Projects</h2>
       <div class="projects-grid">
 
+        <div class="card feature-card">
+          <div class="feature-media">
+            <video class="feature-video" id="exoDemo" muted loop playsinline preload="none" width="960" height="706"
+                   poster="assets/exo_ego_teaser.webp" data-src="assets/exo_ego_demo.mp4"
+                   aria-label="Demo: synced multi-view capture, camera calibration, 3D pose, SMPL-X body fitting, scene reconstruction and 4D human reconstruction in the viewer, with an inset of the head-mounted camera's view and a foot-speed (gait) graph"></video>
+          </div>
+          <div class="card-content feature-content">
+            <div class="card-title">Exo-to-Ego World Modeling</div>
+            <div class="card-desc">
+              Reconstructs a metric 3D scene with Gaussian splatting from a calibrated multi-view rig, fits SMPL-X body models within it, and localizes a head-mounted ego camera to recover the subject&rsquo;s own view.
+            </div>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="tag">PyTorch</span>
+                <span class="tag">Gaussian Splatting</span>
+                <span class="tag">SMPL-X</span>
+                <span class="tag">Multi-view Geometry</span>
+                <span class="tag">Egocentric Vision</span>
+              </div>
+              <span class="tag tag-status">Ongoing</span>
+            </div>
+            <a class="feature-discuss" href="https://lnkd.in/p/gs2N6kBH" target="_blank" rel="noopener">Discussion on LinkedIn &rarr;</a>
+          </div>
+        </div>
+
         <div class="card">
           <div class="card-thumb"><img src="assets/forecasting_teaser.png" alt="3D body motion forecasting teaser" /></div>
           <div class="card-content">
@@ -1301,7 +1378,7 @@
                 <span class="tag">Self-supervised</span>
                 <span class="tag">Domain Adaptation</span>
               </div>
-              <span class="venue-badge venue-badge-amber" style="display:block;margin-top:0;font-size:0.78rem;font-weight:500;color:#e65100;background:#fff8e1;padding:3px 10px;border-radius:3px;">European Conference on Computer Vision, 2026 [Under Review]</span>
+              <span class="tag tag-status">Manuscript in preparation</span>
             </div>
           </div>
         </div>
@@ -1369,10 +1446,34 @@
             Pose Keypoint Visualizer
           </div>
           <div class="card-desc">A browser-based 3D viewer for human and animal pose keypoints. Supports drag-and-drop JSON files, animated playback, skeletal connections, motion trails, and multiple themes.</div>
-          <p style="font-size:0.8rem;color:#888;font-style:italic;margin-top:6px;">Note: the online version supports JSON files only. NPY conversion requires running the tool locally.</p>
+          <p style="font-size:0.8rem;color:#a8a3c4;font-style:italic;margin-top:6px;">Note: the online version supports JSON files only. NPY conversion requires running the tool locally.</p>
           <div class="card-footer">
             <div class="card-links">
-              <a class="card-link" href="https://praneetbala.github.io/pose-keypoint-visualizer/" target="_blank" rel="noopener">Try it &rarr;</a>
+              <a class="card-link" href="https://balapraneet.com/pose-keypoint-visualizer/" target="_blank" rel="noopener">Try it &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card tool-card-side game-card" style="margin-top:20px;display:flex;flex-direction:row;align-items:center;">
+        <img class="game-thumb" src="assets/dimension_thumb.webp" width="794" height="425" loading="lazy" alt="Dimension gameplay: the player runs down a red-lit 3D corridor toward an emergency exit, with a countdown timer" />
+        <div class="card-content tool-card-side-content" style="padding-left:24px;">
+          <div class="card-title">
+            <span class="chip-gamejam">Game jam</span><br />
+            Dimension
+          </div>
+          <div class="card-desc">A puzzle game in which reality is a file system: renaming a file in a terminal changes the world around you. The player moves between line, plane, and 3D perspectives to escape a facility. Built in four days with the ThunderOps team for the 2026 Epic AI MegaJam.</div>
+          <p class="game-role"><strong>My role:</strong> world building (map design and creation), character design and animation, and the puzzles for the final level.</p>
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="tag">Unreal Engine 5.9</span>
+              <span class="tag">Level design</span>
+              <span class="tag">Character animation</span>
+              <span class="tag">Game design</span>
+            </div>
+            <div class="card-links">
+              <a class="card-link" href="https://mixingmacaque.itch.io/dimension" target="_blank" rel="noopener">Play on itch.io &rarr;</a>
+              <!-- TODO: <a class="card-link" href="TRAILER_URL" target="_blank" rel="noopener">Watch trailer &rarr;</a> -->
             </div>
           </div>
         </div>
@@ -1390,8 +1491,8 @@
       <h2>Publications</h2>
 
       <div class="pub-under-review" style="margin-bottom: 24px;">
-        <strong>Bala</strong> et al., <strong>&ldquo;Learning to Forecast Domain Aware 3D Body Motion by Watching Single View Videos.&rdquo;</strong>
-        <span class="pub-venue">European Conference on Computer Vision, 2026. <span class="pub-badge">Under Review</span></span>
+        <strong>Bala</strong> et al., <strong>&ldquo;Learning to Forecast Domain-Aware 3D Body Motion by Watching Single-View Videos.&rdquo;</strong>
+        <span class="pub-venue">Manuscript in preparation.</span>
       </div>
 
       <ul class="pub-list">
@@ -1432,13 +1533,21 @@
     <div class="container">
       <h2>News</h2>
       <ul class="news-list">
-        <li class="news-highlight" style="background:#f0f2ff;box-shadow:inset 3px 0 0 #1a237e;padding:8px 12px 8px 25px;margin-left:-25px;border-radius:0 6px 6px 0;">
-          <span class="news-date">Apr 2026</span>
-          <span class="news-text">Actively seeking full-time roles in <strong>3D vision</strong>, <strong>generative modeling</strong>, and <strong>autonomous systems</strong>.</span>
+        <li>
+          <span class="news-date">Nov 2026</span>
+          <span class="news-text"><strong>Built Dimension</strong> with the ThunderOps team for the Epic AI MegaJam, handling world building, character design and animation, and the final level&rsquo;s puzzles. <a class="bio-link" href="https://mixingmacaque.itch.io/dimension" target="_blank" rel="noopener">Play it &rarr;</a></span>
         </li>
         <li>
-          <span class="news-date">Mar 2026</span>
-          <span class="news-text"><strong>Paper under review at ECCV.</strong> <em>&ldquo;Learning to Forecast Domain Aware 3D Body Motion by Watching Single View Videos.&rdquo;</em></span>
+          <span class="news-date">Nov 2026</span>
+          <span class="news-text"><strong>Sharing early results from new work on exo-to-ego world modeling:</strong> Gaussian splatting scene reconstruction and SMPL-X body fitting, toward egocentric view synthesis.</span>
+        </li>
+        <li>
+          <span class="news-date">Sep 2026</span>
+          <span class="news-text"><strong>Defended my Ph.D.</strong> in Computer Science at the University of Minnesota.</span>
+        </li>
+        <li class="news-highlight" style="padding:8px 12px 8px 25px;margin-left:-25px;border-radius:0 6px 6px 0;">
+          <span class="news-date">Sep 2026</span>
+          <span class="news-text"><strong>Open to full-time research roles</strong> in 3D vision, reconstruction, and world models.</span>
         </li>
         <li>
           <span class="news-date">Apr 2024</span>
@@ -1502,19 +1611,19 @@
       <ul class="two-col-list two-col-list--compact">
         <li>
           <span class="two-col-left">CSCI 3081W</span>
-          <span class="two-col-right"><strong>Program Design &amp; Development.</strong> <span style="color:#555;font-style:italic;">Teaching Assistant.</span> <span style="color:#888;font-size:0.82rem;">Fall 2023, Spring 2024</span></span>
+          <span class="two-col-right"><strong>Program Design &amp; Development.</strong> <span style="color:#b3adcf;font-style:italic;">Teaching Assistant.</span> <span style="color:#a8a3c4;font-size:0.82rem;">Fall 2023, Spring 2024</span></span>
         </li>
         <li>
           <span class="two-col-left">CSCI 5561</span>
-          <span class="two-col-right"><strong>Computer Vision.</strong> <span style="color:#555;font-style:italic;">Teaching Assistant.</span> <span style="color:#888;font-size:0.82rem;">Spring 2021</span></span>
+          <span class="two-col-right"><strong>Computer Vision.</strong> <span style="color:#b3adcf;font-style:italic;">Teaching Assistant.</span> <span style="color:#a8a3c4;font-size:0.82rem;">Spring 2021</span></span>
         </li>
         <li>
           <span class="two-col-left">CSCI 4611</span>
-          <span class="two-col-right"><strong>Programming Graphics and Games.</strong> <span style="color:#555;font-style:italic;">Teaching Assistant.</span> <span style="color:#888;font-size:0.82rem;">Spring 2019</span></span>
+          <span class="two-col-right"><strong>Programming Graphics and Games.</strong> <span style="color:#b3adcf;font-style:italic;">Teaching Assistant.</span> <span style="color:#a8a3c4;font-size:0.82rem;">Spring 2019</span></span>
         </li>
         <li>
           <span class="two-col-left">CSCI 2021</span>
-          <span class="two-col-right"><strong>Machine Architecture and Organization.</strong> <span style="color:#555;font-style:italic;">Teaching Assistant.</span> <span style="color:#888;font-size:0.82rem;">Spring 2019</span></span>
+          <span class="two-col-right"><strong>Machine Architecture and Organization.</strong> <span style="color:#b3adcf;font-style:italic;">Teaching Assistant.</span> <span style="color:#a8a3c4;font-size:0.82rem;">Spring 2019</span></span>
         </li>
       </ul>
     </div>
@@ -1631,6 +1740,22 @@
       fig.addEventListener('focusin', function () { paused = true; });
       fig.addEventListener('focusout', function () { paused = false; });
       restart();
+    })();
+  </script>
+  <script>
+    // Exo-to-Ego demo clip: loads and plays only while visible; reduced motion gets the still + controls.
+    (function () {
+      var v = document.getElementById('exoDemo');
+      if (!v) return;
+      var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var loaded = false;
+      function load() { if (!loaded) { v.src = v.dataset.src; loaded = true; } }
+      if (calm) { v.controls = true; v.preload = 'metadata'; load(); return; }
+      if (!('IntersectionObserver' in window)) { load(); v.autoplay = true; return; }
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { load(); var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); }
+        else v.pause();
+      }, { threshold: 0.25 }).observe(v);
     })();
   </script>
 </body>
