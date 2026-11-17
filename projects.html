@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V7EZFGXTZQ"></script>
@@ -351,28 +351,6 @@
       }
     }
 
-    /* ── THEME TOGGLE BUTTON ── */
-    #themeToggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--muted);
-      padding: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 6px;
-      transition: color 0.15s, background 0.15s;
-      line-height: 0;
-    }
-    #themeToggle:hover {
-      color: var(--accent);
-      background: var(--accent-light);
-    }
-    .theme-icon-sun  { display: none; }
-    .theme-icon-moon { display: block; }
-    [data-theme="dark"] .theme-icon-sun  { display: block; }
-    [data-theme="dark"] .theme-icon-moon { display: none; }
 
     /* ── DARK MODE ── */
     [data-theme="dark"] {
@@ -420,7 +398,6 @@
       color: #7986cb;
     }
   </style>
-  <script>(function(){var s=localStorage.getItem('pcb-theme');if(!s)s=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',s);})();</script>
 </head>
 <body>
 
@@ -432,10 +409,6 @@
           PCB
         </span>
       </a>
-      <button id="themeToggle" aria-label="Toggle dark mode" style="margin-left:auto;">
-        <svg class="theme-icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="theme-icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      </button>
     </div>
   </div>
 
@@ -751,19 +724,8 @@
   </div>
 
   <footer>
-    Praneet C. Bala &middot; Saint Paul, MN &middot; <a href="mailto:balapraneet@gmail.com">balapraneet@gmail.com</a>
+    Praneet Bala &middot; Minneapolis, MN &middot; <a href="mailto:balapraneet@gmail.com">balapraneet@gmail.com</a>
   </footer>
 
-  <script>
-    (function () {
-      var btn = document.getElementById('themeToggle');
-      if (!btn) return;
-      btn.addEventListener('click', function () {
-        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('pcb-theme', next);
-      });
-    })();
-  </script>
 </body>
 </html>

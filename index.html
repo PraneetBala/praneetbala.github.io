@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V7EZFGXTZQ"></script>
@@ -11,16 +11,16 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="Praneet C. Bala" />
+  <meta property="og:title" content="Praneet Bala" />
   <meta property="og:description" content="Ph.D. Candidate in Computer Science at UMN. Specializing in 3D Computer Vision, self-supervised learning, and generative modeling." />
   <meta property="og:image" content="https://balapraneet.com/assets/og_image.jpg" />
   <meta property="og:url" content="https://balapraneet.com" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Praneet C. Bala" />
+  <meta name="twitter:title" content="Praneet Bala" />
   <meta name="twitter:description" content="Ph.D. Candidate in Computer Science at UMN. Specializing in 3D Computer Vision, self-supervised learning, and generative modeling." />
   <meta name="twitter:image" content="https://balapraneet.com/assets/og_image.jpg" />
-  <title>Praneet C. Bala</title>
+  <title>Praneet Bala</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -164,97 +164,6 @@
       font-size: 3rem;
       color: var(--accent);
     }
-
-    /* ── HERO SLIDESHOW ── */
-    .hero-slideshow {
-      position: relative;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      border: 3px solid var(--border);
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .hero-slides {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.4s ease;
-    }
-
-    .hero-slide {
-      min-width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: 0.02em;
-      flex-shrink: 0;
-    }
-
-    .hero-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-slideshow-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(26,35,126,0.7);
-      border: none;
-      border-radius: 50%;
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: #fff;
-      padding: 0;
-      opacity: 0;
-      transition: opacity 0.2s;
-      z-index: 2;
-    }
-
-    .hero-slideshow:hover .hero-slideshow-btn { opacity: 1; }
-
-    .hero-slideshow-btn.prev { left: 10px; }
-    .hero-slideshow-btn.next { right: 10px; }
-
-    .hero-slideshow-btn:hover { background: #1a237e; }
-
-    .hero-slideshow-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-
-    .hero-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .hero-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #c5cae9;
-      cursor: pointer;
-      border: none;
-      padding: 0;
-      transition: background 0.2s;
-    }
-
-    .hero-dot.active { background: #1a237e; }
 
     .hero-header h1 {
       font-size: 2.2rem;
@@ -814,28 +723,6 @@
       color: #ffb74d !important;
     }
 
-    /* ── THEME TOGGLE BUTTON ── */
-    #themeToggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--muted);
-      padding: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 6px;
-      transition: color 0.15s, background 0.15s;
-      line-height: 0;
-    }
-    #themeToggle:hover {
-      color: var(--accent);
-      background: var(--accent-light);
-    }
-    .theme-icon-sun  { display: none; }
-    .theme-icon-moon { display: block; }
-    [data-theme="dark"] .theme-icon-sun  { display: block; }
-    [data-theme="dark"] .theme-icon-moon { display: none; }
 
     /* ── DARK MODE ── */
     [data-theme="dark"] {
@@ -931,104 +818,459 @@
     [data-theme="dark"] #heroBg {
       opacity: 0.28;
     }
+
+    /* ══════════ REDESIGN: purple theme, new nav, room hero ══════════ */
+    :root {
+      --violet: #b490ff;
+      --violet-strong: #9a6bff;
+      --hero-ink: #f4f1ff;
+      --hero-muted: #c9c3e6;
+      --hero-line: rgba(190, 170, 255, 0.22);
+    }
+    [data-theme="dark"] {
+      --bg: #141026;
+      --text: #ece9f8;
+      --muted: #b3adcf;
+      --border: #2c2550;
+      --accent: #b490ff;
+      --accent-light: #251d4a;
+      --card-hover-shadow: 0 4px 18px rgba(120, 80, 255, 0.22);
+    }
+    [data-theme="dark"] nav { background: rgba(20, 16, 38, 0.9); box-shadow: none; }
+    [data-theme="dark"] .card { background: #1c1636; }
+    [data-theme="dark"] .nav-links a.active { color: #fff; border-bottom-color: var(--violet); }
+    [data-theme="dark"] .news-highlight { background: #251d4a !important; }
+    [data-theme="dark"] a[href="projects.html"], [data-theme="dark"] footer a { color: var(--violet) !important; }
+
+    /* ── nav ── */
+    .nav-inner { max-width: 1560px; height: 56px; gap: 20px; }
+    .nav-brand {
+      display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0;
+      color: var(--text); text-decoration: none; font-weight: 700; font-size: 1.12rem; letter-spacing: -0.01em;
+    }
+    .nav-brand svg { width: 28px; height: 28px; color: var(--violet-strong); }
+    [data-theme="dark"] .nav-brand svg { color: var(--violet); }
+    .nav-links { gap: 34px; align-items: center; }
+    .nav-links a { font-size: 0.95rem; padding: 16px 2px; display: inline-block; }
+    .nav-links a.active { padding-bottom: 14px; }
+    .nav-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .nav-icon {
+      display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+      color: var(--text); border-radius: 8px; transition: color 0.15s, background 0.15s;
+    }
+    .nav-icon:hover { color: var(--accent); background: var(--accent-light); }
+    .nav-icon svg { width: 20px; height: 20px; fill: currentColor; }
+
+    /* ── hero band (always the night-purple scene, in both themes) ── */
+    #about {
+      padding: 0;
+      color: var(--hero-ink);
+      background:
+        radial-gradient(900px 620px at 24% 46%, rgba(132, 92, 255, 0.20), transparent 68%),
+        radial-gradient(700px 500px at 88% 12%, rgba(96, 70, 200, 0.16), transparent 70%),
+        linear-gradient(180deg, #1a1433 0%, #15102b 100%);
+    }
+    .hero-v2 {
+      max-width: 1560px; margin: 0 auto; padding: 28px 40px 36px;
+      min-height: min(calc(100vh - 57px), 900px); min-height: min(calc(100svh - 57px), 900px);
+      display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr); column-gap: 44px; align-items: center;
+    }
+    .hero-room { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+    .room-stage { position: relative; width: 100%; max-width: 760px; aspect-ratio: 900 / 820; }
+    .room-stage img, .room-stage video {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block;
+      filter: drop-shadow(0 30px 40px rgba(6, 3, 20, 0.55));
+    }
+    .room-stage video { opacity: 0; }
+    .room-stage.is-live video { opacity: 1; }
+    .room-stage.is-live img { visibility: hidden; }
+
+    .hero-divider { align-self: stretch; margin: 6% 0; background: linear-gradient(180deg, transparent, var(--hero-line) 18%, var(--hero-line) 82%, transparent); }
+
+    .hero-info { min-width: 0; max-width: 760px; }
+    .hero-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 32px; align-items: start; }
+    .hero-info h1 {
+      font-size: clamp(2.4rem, 4.2vw, 4.1rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; margin: 0;
+    }
+    #about .name-first { color: #fff; }
+    #about .name-last {
+      background: linear-gradient(90deg, #cdb3ff 0%, #a77bff 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero-rule { display: block; width: 62px; height: 6px; border-radius: 3px; margin: 22px 0 20px; background: linear-gradient(90deg, #c7a8ff, #9a6bff); }
+    .hero-tagline { font-size: clamp(1.15rem, 1.75vw, 1.7rem); line-height: 1.4; color: var(--hero-ink); margin: 0 0 20px; }
+    .hero-blurb { font-size: clamp(0.95rem, 1.1vw, 1.1rem); line-height: 1.6; color: var(--hero-muted); margin: 0; }
+    .hero-portrait {
+      width: clamp(150px, 14.5vw, 228px); aspect-ratio: 228 / 316; object-fit: cover; border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.28); box-shadow: 0 18px 40px rgba(6, 3, 20, 0.5); margin-top: 4px;
+    }
+    .hero-meta-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+    .hero-meta { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .hero-meta li { display: flex; align-items: center; gap: 18px; font-size: clamp(0.92rem, 1.05vw, 1.05rem); line-height: 1.35; color: var(--hero-ink); }
+    .hero-meta svg { width: 30px; height: 30px; flex-shrink: 0; color: #fff; }
+    #about .icon-links { margin: 0; gap: 10px; flex-wrap: nowrap; }
+    #about .icon-link {
+      width: 46px; height: 42px; border-radius: 10px; background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.32); color: #fff;
+    }
+    #about .icon-link:hover { background: rgba(180, 144, 255, 0.2); border-color: var(--violet); }
+    #about .icon-link svg { width: 20px; height: 20px; }
+
+    .hero-cta { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 36px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px; height: 52px; padding: 0 28px;
+      border-radius: 12px; font-size: 1.05rem; font-weight: 700; text-decoration: none; white-space: nowrap;
+      transition: transform 0.12s, box-shadow 0.15s, background 0.15s, border-color 0.15s;
+    }
+    .btn svg { width: 24px; height: 24px; flex-shrink: 0; }
+    .btn .arrow { width: 20px; height: 20px; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: linear-gradient(180deg, #cfb4ff 0%, #a47bff 100%); color: #1b1236; box-shadow: 0 8px 24px rgba(140, 96, 255, 0.35); }
+    .btn-primary:hover { box-shadow: 0 10px 30px rgba(140, 96, 255, 0.5); }
+    .btn-ghost { color: #fff; border: 1.5px solid rgba(255, 255, 255, 0.75); background: rgba(255, 255, 255, 0.02); }
+    .btn-ghost:hover { background: rgba(180, 144, 255, 0.16); border-color: var(--violet); }
+    .btn-explore { height: 48px; border-radius: 999px; border-color: var(--violet); padding: 0 34px; font-size: 1rem; }
+    .btn:focus-visible, .nav-icon:focus-visible, #about .icon-link:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+    /* longer bio, under the hero grid, still on the purple band */
+    .hero-about { max-width: 1560px; margin: 0 auto; padding: 0 40px 56px; }
+    .hero-about .hero-bio { margin: 0; padding-top: 34px; border-top: 1px solid var(--hero-line); max-width: 980px; }
+    #about .hero-bio p { color: var(--hero-muted); font-size: 0.98rem; }
+    #about .hero-bio strong, #about .hero-bio em { color: var(--hero-ink); }
+    #about .bio-link { color: var(--violet); }
+
+    @media (max-width: 1180px) {
+      .nav-links { gap: 22px; }
+      .hero-v2 { column-gap: 28px; padding: 24px 24px 32px; }
+      .hero-portrait { display: none; }
+      .hero-top { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 860px) {
+      .nav-brand span { display: none; }
+      .hero-v2 { grid-template-columns: 1fr; row-gap: 26px; min-height: 0; padding: 20px 20px 32px; }
+      .hero-divider { display: none; }
+      .room-stage { max-width: 520px; }
+      .hero-info { max-width: none; }
+      .hero-rule { margin: 16px 0; }
+      .hero-meta-row { margin-top: 24px; }
+      .hero-cta { margin-top: 26px; gap: 14px; }
+      .hero-about { padding: 0 20px 40px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 0.74rem; padding: 18px 0; }
+      .nav-links a.active { padding-bottom: 16px; }
+      .hero-v2 { padding: 14px 16px 28px; }
+      .hero-info h1 { font-size: 2.2rem; }
+      .hero-meta li { gap: 12px; }
+      .hero-meta svg { width: 24px; height: 24px; }
+      #about .icon-links { flex-wrap: wrap; }
+      .btn { height: 48px; padding: 0 20px; font-size: 0.98rem; flex: 1 1 auto; }
+      .btn-explore { flex: 0 0 auto; }
+      .hero-about { padding: 0 16px 36px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .btn, .nav-icon { transition: none; } .btn:hover { transform: none; } }
+    .hero-resume { align-self: center; color: var(--hero-muted); font-size: 0.95rem; text-decoration: underline; text-underline-offset: 4px; }
+    .hero-resume:hover { color: #fff; }
+
+    /* portrait carousel: the old site's round photo, cycling through vision methods */
+    .portrait { margin: 6px 0 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .hero-portrait {
+      position: relative; overflow: hidden; width: clamp(150px, 13vw, 220px); aspect-ratio: 1; height: auto;
+      border-radius: 50%; border: 3px solid rgba(214, 196, 255, 0.55); background: #241c45;
+      box-shadow: 0 0 0 8px rgba(180, 144, 255, 0.08), 0 18px 40px rgba(6, 3, 20, 0.5);
+    }
+    .hero-portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.7s ease; }
+    .hero-portrait img.is-on { opacity: 1; }
+    .portrait-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--hero-muted); line-height: 1; }
+    .portrait-dots { display: flex; gap: 7px; margin-top: -2px; }
+    .portrait-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; background: rgba(255, 255, 255, 0.3); transition: background 0.2s, transform 0.2s; }
+    .portrait-dots button:hover { background: rgba(255, 255, 255, 0.6); }
+    .portrait-dots button[aria-pressed="true"] { background: var(--violet); transform: scale(1.25); }
+    .portrait-dots button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    @media (max-width: 1180px) { .hero-portrait { display: block; width: clamp(120px, 15vw, 170px); } .hero-top { grid-template-columns: minmax(0, 1fr) auto; } }
+    @media (max-width: 640px) { .hero-top { column-gap: 16px; } .hero-portrait { width: 104px; border-width: 2px; box-shadow: 0 0 0 5px rgba(180, 144, 255, 0.08); } .portrait { gap: 8px; } .portrait-label { font-size: 0.66rem; } .portrait-dots { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .hero-portrait img { transition: none; } }
+
+    /* ══════════ PALETTE: Sanzo Wada, "A Dictionary of Color Combinations" ══════════
+       Light Mauve #c7a3d9 · Violet #4b3399 · Indian Lake #d7344f · Dull Violet Black #15152b
+       Roughly 60% violet black, 30% violet/mauve, 10% Indian Lake (accents only, never body text). */
+    :root {
+      --wada-mauve: #c7a3d9;
+      --wada-violet: #4b3399;
+      --wada-lake: #d7344f;
+      --wada-black: #15152b;
+      --violet: var(--wada-mauve);
+      --hero-muted: #c4bdd8;
+      --hero-line: rgba(199, 163, 217, 0.22);
+    }
+    [data-theme="dark"] {
+      --bg: #15152b;
+      --border: #2a2850;
+      --accent: #c7a3d9;
+      --accent-light: #262150;
+    }
+    [data-theme="dark"] nav { background: rgba(21, 21, 43, 0.92); }
+    [data-theme="dark"] .card { background: #1c1b3a; }
+    [data-theme="dark"] .nav-links a.active { border-bottom-color: var(--wada-lake); }
+    [data-theme="dark"] .nav-brand svg { color: var(--wada-mauve); }
+    .nav-links a.active { border-bottom-color: var(--wada-lake); }
+
+    #about {
+      background:
+        radial-gradient(900px 640px at 24% 46%, rgba(75, 51, 153, 0.42), transparent 68%),
+        radial-gradient(640px 460px at 92% 8%, rgba(75, 51, 153, 0.22), transparent 70%),
+        radial-gradient(520px 380px at 70% 108%, rgba(215, 52, 79, 0.07), transparent 70%),
+        linear-gradient(180deg, #19183a 0%, #15152b 100%);
+    }
+    #about .name-last { background: linear-gradient(90deg, #dcc4ea 0%, #b88dd5 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-rule { background: linear-gradient(90deg, #e2506a, #c22a45); }
+    .btn-primary { background: linear-gradient(180deg, #d6b9e4 0%, #b88fd2 100%); color: var(--wada-black); box-shadow: 0 8px 24px rgba(75, 51, 153, 0.55); }
+    .btn-primary:hover { box-shadow: 0 10px 30px rgba(75, 51, 153, 0.75), 0 0 0 1px rgba(215, 52, 79, 0.35); }
+    .btn-ghost:hover { background: rgba(75, 51, 153, 0.35); border-color: var(--wada-mauve); }
+    .btn-explore { border-color: rgba(199, 163, 217, 0.7); }
+    #about .icon-link:hover { background: rgba(75, 51, 153, 0.4); border-color: var(--wada-lake); }
+    .hero-resume:hover { color: var(--wada-mauve); }
+    #about .bio-link { color: var(--wada-mauve); }
+
+    /* ── hero text uses the whole right half; photo sits above the name ── */
+    .hero-info { max-width: none; }
+    .hero-top { display: block; }
+    .portrait {
+      display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; justify-content: start;
+      column-gap: 18px; row-gap: 10px; align-items: center; margin: 0 0 26px;
+    }
+    .hero-portrait { grid-row: 1 / span 2; width: clamp(110px, 8.5vw, 150px); border: 3px solid rgba(199, 163, 217, 0.7);
+      box-shadow: 0 0 0 7px rgba(75, 51, 153, 0.35), 0 14px 34px rgba(6, 3, 20, 0.55); }
+    .portrait-label { align-self: end; color: var(--wada-mauve); }
+    .portrait-dots { align-self: start; margin-top: 0; }
+    .portrait-dots button[aria-pressed="true"] { background: var(--wada-lake); }
+    .hero-tagline { max-width: 34ch; }
+    .hero-blurb { max-width: 62ch; }
+    @media (max-width: 1180px) { .hero-top { display: block; } .hero-portrait { width: clamp(100px, 11vw, 130px); } }
+    @media (max-width: 640px) {
+      .portrait { margin-bottom: 18px; column-gap: 14px; }
+      .hero-portrait { width: 92px; border-width: 2px; box-shadow: 0 0 0 5px rgba(75, 51, 153, 0.35); }
+      .portrait-dots { display: flex; }
+    }
+
+    /* ── big round photo top-right, beside the name; intro text spans the full half ── */
+    .hero-top {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 32px;
+      grid-template-areas: "name photo";
+    }
+    .hero-name { grid-area: name; align-self: end; }
+    .hero-name .hero-rule { margin-bottom: 0; }
+    .hero-intro { grid-area: intro; margin-top: 26px; }
+    .portrait { grid-area: photo; display: flex; flex-direction: column; align-items: center; gap: 12px; margin: 0; }
+    .hero-portrait { width: clamp(190px, 16vw, 300px); border-width: 3px; box-shadow: 0 0 0 10px rgba(75, 51, 153, 0.3), 0 22px 50px rgba(6, 3, 20, 0.55); }
+    .portrait-dots { margin-top: -2px; }
+    .portrait .portrait-label, .portrait .portrait-dots { align-self: center; }
+    .hero-name h1 { white-space: nowrap; }
+    .hero-portrait { width: clamp(180px, 14vw, 260px); }
+    @media (max-width: 1180px) { .hero-top { display: grid; } .hero-portrait { width: clamp(150px, 17vw, 200px); } }
+    @media (max-width: 640px) {
+      .hero-top { column-gap: 14px; }
+      .hero-intro { margin-top: 18px; }
+      .portrait { gap: 8px; }
+      .hero-portrait { width: 112px; border-width: 2px; box-shadow: 0 0 0 6px rgba(75, 51, 153, 0.3); }
+      .portrait-dots { display: none; }
+    }
+
+    /* ── stacked name + 3-line tagline on the left, big photo wrapped on the right ── */
+    .hero-name h1.hero-h1 { white-space: normal; font-size: clamp(2.8rem, 5vw, 5rem); line-height: 1.0; }
+    .hero-h1 .name-first, .hero-h1 .name-last { display: block; }
+    .hero-name { align-self: center; }
+    .hero-name .hero-rule { margin: 22px 0 20px; }
+    .hero-name .hero-tagline { max-width: 23ch; margin: 0; font-size: clamp(1.25rem, 1.9vw, 1.85rem); line-height: 1.32; }
+    .hero-top { column-gap: 40px; align-items: center; }
+    .hero-portrait { width: clamp(220px, 19vw, 340px); }
+    .hero-intro { margin-top: 30px; }
+    @media (max-width: 1180px) { .hero-portrait { width: clamp(170px, 20vw, 230px); } }
+    @media (max-width: 640px) {
+      .hero-name h1.hero-h1 { font-size: 2.5rem; }
+      .hero-name .hero-tagline { font-size: 1.12rem; }
+      .hero-name .hero-rule { margin: 14px 0; }
+      .hero-portrait { width: 120px; }
+      .hero-intro { margin-top: 20px; }
+    }
+
+    /* tagline: exactly three lines next to the photo */
+    .hero-top { grid-template-columns: max-content auto; justify-content: space-between; }
+    .hero-name .hero-tagline { max-width: none; font-size: clamp(1.2rem, 1.65vw, 1.7rem); }
+    .hero-tagline .tl { display: block; white-space: nowrap; }
+    .hero-portrait { width: clamp(210px, 17vw, 320px); }
+    @media (max-width: 1180px) {
+      .hero-top { grid-template-columns: minmax(0, 1fr) auto; column-gap: 24px; }
+      .hero-tagline .tl { display: inline; white-space: normal; }
+      .hero-portrait { width: clamp(150px, 17vw, 200px); }
+    }
+    @media (max-width: 640px) {
+      .hero-top { grid-template-columns: minmax(0, 1fr) auto; }
+      .hero-tagline .tl { display: inline; white-space: normal; }
+      .hero-portrait { width: 116px; }
+    }
+
+    /* ── link row (old-site style): round icons + Resume / CV pills ── */
+    .hero-meta-row { margin-top: 30px; }
+    .hero-links { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    #about .hero-links .icon-link {
+      width: 44px; height: 44px; border-radius: 50%; border: 1px solid transparent;
+      background: #262150; color: #fff;
+    }
+    #about .hero-links .icon-link svg { width: 19px; height: 19px; }
+    #about .hero-links .icon-link:hover { background: var(--wada-violet); border-color: var(--wada-lake); transform: translateY(-1px); }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 7px; height: 44px; padding: 0 20px; border-radius: 999px;
+      background: #262150; color: #fff; font-size: 0.95rem; font-weight: 600; text-decoration: none;
+      border: 1px solid transparent; transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    }
+    .hero-pill svg { width: 16px; height: 16px; }
+    .hero-pill:hover { background: var(--wada-violet); border-color: var(--wada-lake); transform: translateY(-1px); }
+    .hero-pill:focus-visible, #about .hero-links .icon-link:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+    .hero-links .hero-pill:first-of-type { margin-left: 6px; }
+    @media (max-width: 640px) {
+      .hero-links { gap: 10px; margin-top: 24px; }
+      #about .hero-links .icon-link { width: 42px; height: 42px; }
+      .hero-pill { height: 42px; padding: 0 16px; }
+      .hero-links .hero-pill:first-of-type { margin-left: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { .hero-pill:hover, #about .hero-links .icon-link:hover { transform: none; } }
+
+    /* ── centred excerpt under the hero ── */
+    .hero-about .hero-bio { max-width: 820px; margin: 0 auto; text-align: center; }
+    #about .hero-about .hero-bio p { text-align: center; font-size: 1.05rem; line-height: 1.8; }
+    #about .hero-about .hero-bio p + p { margin-top: 16px; }
+    @media (max-width: 640px) { #about .hero-about .hero-bio p { font-size: 0.98rem; } }
+
+    /* excerpt: centred column, left-aligned text for easier reading */
+    .hero-about .hero-bio { text-align: left; }
+    #about .hero-about .hero-bio p { text-align: left; }
+
+    /* nav: brand on the left, tabs on the right */
+    .nav-links { margin-left: auto; }
   </style>
-  <script>(function(){var s=localStorage.getItem('pcb-theme');if(!s)s=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',s);})();</script>
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <a class="nav-name" href="#about">PCB</a>
-      <div style="display:flex;align-items:center;gap:16px;">
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#publications">Publications</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#service">Service</a></li>
-          <li><a href="/assets/PraneetBala_CV.pdf" target="_blank">CV<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:middle;opacity:0.6;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
-        </ul>
-        <button id="themeToggle" aria-label="Toggle dark mode">
-          <svg class="theme-icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="theme-icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        </button>
-      </div>
+      <a class="nav-brand" href="#about" aria-label="Praneet Bala, home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 2.5 20.5 7v10L12 21.5 3.5 17V7z"/><path d="M3.5 7 12 11.5 20.5 7M12 11.5v10"/></svg>
+        <span>Praneet Bala</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#service">Service</a></li>
+        <li><a href="/assets/PraneetBala_CV.pdf" target="_blank">CV</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- HERO / BIO -->
+  <!-- HERO -->
   <section id="about" style="border-top: none;">
-    <video autoplay muted loop playsinline id="heroBg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.18;z-index:0;pointer-events:none;">
-      <source src="assets/hero_bg.mp4" type="video/mp4" />
-    </video>
-    <div class="container">
-      <div class="hero">
-        <div class="hero-slideshow-wrap">
-          <div class="hero-slideshow" id="heroSlideshow">
-            <div class="hero-slides" id="heroSlides">
-              <div class="hero-slide"><img src="assets/Depth_Map.jpg" alt="Depth Map" /></div>
-              <div class="hero-slide"><img src="assets/RGB.jpg" alt="RGB" /></div>
-              <div class="hero-slide"><img src="assets/Canny_Edges.jpg" alt="Canny Edges" /></div>
-              <div class="hero-slide"><img src="assets/Pose_Estimate.jpg" alt="Pose Estimate" /></div>
-              <div class="hero-slide"><img src="assets/3DGS_Render.jpg" alt="3DGS Render" /></div>
-              <div class="hero-slide"><img src="assets/Depth_Map.jpg" alt="Depth Map" /></div>
-              <div class="hero-slide"><img src="assets/RGB.jpg" alt="RGB" /></div>
-            </div>
-            <button class="hero-slideshow-btn prev" id="heroPrev" aria-label="Previous photo">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button class="hero-slideshow-btn next" id="heroNext" aria-label="Next photo">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-          </div>
-          <div id="heroLabel" style="font-size:0.8rem;color:#888;text-align:center;margin-bottom:6px;letter-spacing:0.05em;">RGB</div>
-          <div class="hero-dots" id="heroDots"></div>
+    <div class="hero-v2">
+      <div class="hero-room">
+        <div class="room-stage" id="roomStage">
+          <img src="room/hero.webp" srcset="room/hero_sm.webp 600w, room/hero.webp 900w" sizes="(max-width: 860px) 90vw, 46vw"
+               width="900" height="820" fetchpriority="high" decoding="async"
+               alt="Isometric 3D render of my workspace at night: me at an L-shaped desk with two monitors, a whiteboard, posters and a city view through the window" />
         </div>
-        <div class="hero-header">
-          <h1><span class="name-first">Praneet C.</span> <span class="name-last">Bala</span></h1>
-          <p class="subheading">I build systems that see, reconstruct, and reason about the 3D world.</p>
-          <div class="icon-links">
-            <a class="icon-link" href="https://www.linkedin.com/in/praneet-bala" target="_blank" rel="noopener" title="LinkedIn">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a class="icon-link" href="https://github.com/PraneetBala" target="_blank" rel="noopener" title="GitHub">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            </a>
-            <a class="icon-link" href="https://scholar.google.com/citations?hl=en&user=O5vb8MoAAAAJ" target="_blank" rel="noopener" title="Google Scholar">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg>
-            </a>
-            <a class="icon-link" href="https://orcid.org/0000-0002-2144-1986" target="_blank" rel="noopener" title="ORCiD">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.9-1.303 3.9-3.722 0-2.016-1.284-3.722-3.853-3.722h-2.344z"/></svg>
-            </a>
-            <a class="icon-link" href="mailto:balapraneet@gmail.com" title="Email">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            </a>
-            <a class="resume-pill" href="/assets/PraneetBala_Resume.pdf" target="_blank" rel="noopener">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Resume
-            </a>
-          </div>
-        </div>
+        <a class="btn btn-ghost btn-explore" href="room.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 2.5 20.5 7v10L12 21.5 3.5 17V7z"/><path d="M3.5 7 12 11.5 20.5 7M12 11.5v10"/></svg>
+          Explore the Room
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
 
+      <div class="hero-divider" aria-hidden="true"></div>
+
+      <div class="hero-info">
+        <div class="hero-top">
+          <figure class="portrait" id="portrait" aria-roledescription="carousel" aria-label="Photos of me, seen through different vision methods">
+            <div class="hero-portrait">
+            <img class="is-on" src="assets/portrait/rgb.webp" alt="Photo of Praneet Bala" data-label="RGB" width="560" height="560" />
+            <img src="assets/portrait/canny.webp" alt="The same photo as Canny edges" data-label="Canny Edges" width="560" height="560" loading="lazy" />
+            <img src="assets/portrait/pixel.webp" alt="Pixel-art version of me" data-label="Pixel Art" width="560" height="560" loading="lazy" />
+            <img src="assets/portrait/gaussian.webp" alt="Me as a 2D Gaussian splat" data-label="2D Gaussian" width="560" height="560" loading="lazy" />
+            <img src="assets/portrait/pose.webp" alt="Face with pose-estimation keypoints" data-label="Pose Estimate" width="560" height="560" loading="lazy" />
+            </div>
+            <figcaption class="portrait-label" aria-live="polite">RGB</figcaption>
+            <div class="portrait-dots" role="group" aria-label="Choose photo"></div>
+          </figure>
+          <div class="hero-name">
+            <h1 class="hero-h1"><span class="name-first">Praneet</span> <span class="name-last">Bala</span></h1>
+            <span class="hero-rule" aria-hidden="true"></span>
+            <p class="hero-tagline"><span class="tl">I build systems that see,</span> <span class="tl">reconstruct, and reason</span> <span class="tl">about the 3D world.</span></p>
+          </div>
+        </div>
+        <div class="hero-intro">
+            <p class="hero-blurb">I&rsquo;m a researcher in computer vision, graphics, and generative models, with a focus on 3D reconstruction, human and animal motion understanding, and world models.</p>
+          </div>
+
+        <div class="hero-meta-row">
+          <ul class="hero-meta">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5 12 5l10 4.5-10 4.5z"/><path d="M6 11.6V16c0 1.2 2.7 2.6 6 2.6s6-1.4 6-2.6v-4.4"/><path d="M22 9.5V15"/></svg>
+              <span>Ph.D., Computer Science<br />University of Minnesota, Twin Cities</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5s-7-6.3-7-11.5a7 7 0 0 1 14 0c0 5.2-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              <span>Minneapolis, MN</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-links">
+          <a class="icon-link" href="https://www.linkedin.com/in/praneet-bala" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          <a class="icon-link" href="https://github.com/PraneetBala" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          <a class="icon-link" href="https://scholar.google.com/citations?hl=en&user=O5vb8MoAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg>
+            </a>
+          <a class="icon-link" href="https://orcid.org/0000-0002-2144-1986" target="_blank" rel="noopener" title="ORCiD" aria-label="ORCiD">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.9-1.303 3.9-3.722 0-2.016-1.284-3.722-3.853-3.722h-2.344z"/></svg>
+            </a>
+          <a class="icon-link" href="mailto:balapraneet@gmail.com" title="Email" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+          <a class="hero-pill" href="/assets/PraneetBala_Resume.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Resume
+          </a>
+          <a class="hero-pill" href="/assets/PraneetBala_CV.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.5z"/><path d="M14 2.5v5h5M9 13h6M9 17h6"/></svg>
+            CV
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-about">
       <div class="hero-bio">
         <p>
-          I&rsquo;m a Ph.D. candidate in Computer Science at the <a href="https://twin-cities.umn.edu/" target="_blank" rel="noopener" class="bio-link">University of Minnesota, Twin Cities</a>, advised by
-          <a href="https://www-users.cse.umn.edu/~hspark/" target="_blank" rel="noopener" class="bio-link">Dr. Hyun Soo Park</a> and <a href="https://www.zimmermannlab.com/" target="_blank" rel="noopener" class="bio-link">Dr. Jan Zimmermann</a>. My research focuses on <strong>3D Computer Vision</strong>,
-          <strong>self-supervised learning</strong>, and <strong>generative modeling</strong>, building systems that perceive,
-          reconstruct, and predict the physical world from visual data.
+          I&rsquo;m a computer vision researcher with a Ph.D. from the <a href="https://twin-cities.umn.edu/" target="_blank" rel="noopener" class="bio-link">University of Minnesota</a>, advised by
+          <a href="https://www-users.cse.umn.edu/~hspark/" target="_blank" rel="noopener" class="bio-link">Dr.&nbsp;Hyun&nbsp;Soo&nbsp;Park</a>, <a href="https://www.zimmermannlab.com/" target="_blank" rel="noopener" class="bio-link">Dr.&nbsp;Jan&nbsp;Zimmermann</a>, and Dr.&nbsp;Stephen&nbsp;J.&nbsp;Guy.
         </p>
         <p>
-          My work spans the full stack: multi-camera capture systems, contrastive representation
-          learning, large-scale dataset creation, latent diffusion models, and neural rendering.
-          I have 4 publications in <em>Nature Communications</em>, <em>IJCV</em>, and <em>eLife</em>,
-          and a paper on domain-aware 3D motion forecasting under review at <em>ECCV 2026</em>.
+          I work on recovering 3D structure and motion from cameras using multi-view geometry. My thesis built a 62-camera capture system,
+          used geometric consistency to learn 3D pose with minimal supervision, and lifted single-view video into forecastable 3D motion.
         </p>
-        <p>My research maps directly onto problems in autonomous vehicles, embodied AI, and generative 3D.</p>
+        <p>
+          Today I&rsquo;m extending that to egocentric perception: reconstructing a scene with Gaussian splatting, fitting SMPL-X bodies within it,
+          and recovering a person&rsquo;s own view of the world.
+        </p>
       </div>
     </div>
   </section>
+
 
   <!-- PROJECTS -->
   <section id="projects">
@@ -1273,7 +1515,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>Praneet C. Bala · Saint Paul, MN · <a href="mailto:balapraneet@gmail.com">balapraneet@gmail.com</a></p>
+      <p>Praneet Bala · Minneapolis, MN · <a href="mailto:balapraneet@gmail.com">balapraneet@gmail.com</a></p>
     </div>
   </footer>
 
@@ -1322,86 +1564,65 @@
     setActive(getActiveFromScroll());
   </script>
 
+
   <script>
+    // Hero room: the still image is always there. Browsers that can play transparent VP9 video
+    // (Chrome, Edge, Firefox) get the looping animation on top; Safari/iOS keep the still.
     (function () {
-      const track = document.getElementById('heroSlides');
-      const dotsContainer = document.getElementById('heroDots');
-      const labelEl = document.getElementById('heroLabel');
-      // DOM layout: [clone-last, s1, s2, s3, s4, s5, clone-first]
-      // indices:         0        1   2   3   4   5       6
-      const N = 5;
-      const LABELS = ['RGB', 'Canny Edges', 'Pixel Art', '2D Gaussian', 'Pose Estimate'];
-      let current = 1; // start on real first slide
-      let transitioning = false;
-
-      for (let i = 0; i < N; i++) {
-        const dot = document.createElement('button');
-        dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Go to photo ' + (i + 1));
-        dot.addEventListener('click', () => { if (!transitioning) goTo(i + 1); });
-        dotsContainer.appendChild(dot);
-      }
-
-      function updateDots() {
-        const dotIdx = (current - 1 + N) % N;
-        dotsContainer.querySelectorAll('.hero-dot').forEach((d, i) =>
-          d.classList.toggle('active', i === dotIdx)
-        );
-        labelEl.textContent = LABELS[dotIdx];
-      }
-
-      function goTo(idx, animate) {
-        if (animate === false) {
-          track.style.transition = 'none';
-          current = idx;
-          track.style.transform = 'translateX(-' + (current * 100) + '%)';
-          void track.offsetHeight; // force reflow before restoring transition
-          track.style.transition = '';
-          updateDots();
-        } else {
-          transitioning = true;
-          current = idx;
-          track.style.transform = 'translateX(-' + (current * 100) + '%)';
-          updateDots();
+      var stage = document.getElementById('roomStage');
+      if (!stage) return;
+      var ua = navigator.userAgent;
+      var webkitOnly = (/AppleWebKit/.test(ua) && !/Chrome|Chromium|Edg\//.test(ua)) || /iP(hone|ad|od)|CriOS|FxiOS|EdgiOS/.test(ua);
+      if (webkitOnly || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (navigator.connection && navigator.connection.saveData) return;
+      var v = document.createElement('video');
+      if (!v.canPlayType || !v.canPlayType('video/webm; codecs="vp9"')) return;
+      v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'auto';
+      v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
+      v.src = 'room/hero.webm';
+      v.addEventListener('playing', function () { stage.classList.add('is-live'); }, { once: true });
+      v.addEventListener('error', function () { stage.classList.remove('is-live'); v.remove(); });
+      function start() {
+        stage.appendChild(v);
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(function (e) {
+            if (e[0].isIntersecting) { var q = v.play(); if (q && q.catch) q.catch(function () {}); } else v.pause();
+          }, { threshold: 0.05 }).observe(stage);
         }
       }
-
-      track.addEventListener('transitionend', () => {
-        transitioning = false;
-        if (current === N + 1) goTo(1, false);      // reached clone-first → snap to real first
-        else if (current === 0) goTo(N, false);     // reached clone-last → snap to real last
-      });
-
-      goTo(1, false); // position without animation
-
-      setInterval(() => { if (!transitioning) goTo(current + 1); }, 4000);
-
-      document.getElementById('heroPrev').addEventListener('click', () => { if (!transitioning) goTo(current - 1); });
-      document.getElementById('heroNext').addEventListener('click', () => { if (!transitioning) goTo(current + 1); });
+      if (document.readyState === 'complete') start(); else addEventListener('load', start, { once: true });
     })();
   </script>
-
   <script>
+    // Portrait carousel: cycles every 3.5 s; dots to jump; pauses on hover/focus; no auto-advance for reduced motion.
     (function () {
-      var btn = document.getElementById('themeToggle');
-      if (!btn) return;
-      btn.addEventListener('click', function () {
-        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('pcb-theme', next);
+      var fig = document.getElementById('portrait');
+      if (!fig) return;
+      var imgs = fig.querySelectorAll('img'), label = fig.querySelector('.portrait-label'), dots = fig.querySelector('.portrait-dots');
+      var i = 0, timer = null, paused = false;
+      var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      imgs.forEach(function (im, k) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.setAttribute('aria-label', im.dataset.label); b.setAttribute('aria-pressed', k === 0 ? 'true' : 'false');
+        b.addEventListener('click', function () { show(k); restart(); });
+        dots.appendChild(b);
       });
-    })();
-  </script>
-
-  <script>
-    (function() {
-      var heroBg = document.getElementById('heroBg');
-      function updateParallax() {
-        var scrolled = window.scrollY;
-        var rate = scrolled * 0.3;
-        heroBg.style.transform = 'translateY(' + rate + 'px)';
+      function show(k) {
+        imgs[i].classList.remove('is-on'); dots.children[i].setAttribute('aria-pressed', 'false');
+        i = k;
+        imgs[i].classList.add('is-on'); dots.children[i].setAttribute('aria-pressed', 'true');
+        label.textContent = imgs[i].dataset.label;
       }
-      window.addEventListener('scroll', updateParallax, { passive: true });
+      function restart() {
+        clearInterval(timer);
+        if (!calm) timer = setInterval(function () { if (!paused && !document.hidden) show((i + 1) % imgs.length); }, 3500);
+      }
+      fig.addEventListener('mouseenter', function () { paused = true; });
+      fig.addEventListener('mouseleave', function () { paused = false; });
+      fig.addEventListener('focusin', function () { paused = true; });
+      fig.addEventListener('focusout', function () { paused = false; });
+      restart();
     })();
   </script>
 </body>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Explore the Room · Praneet Bala</title>
+<meta name="description" content="An interactive 3D model of Praneet Bala's workspace. Drag to look around." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #1d1a3e; overflow: hidden; color: #f4f1ff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  #room { position: fixed; inset: 0; touch-action: none; }
+  .room-canvas { display: block; width: 100%; height: 100%; outline: none; }
+  .room-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity 0.8s ease; pointer-events: none; }
+  #room.room-ready .room-poster { opacity: 0; }
+
+  .bar { position: fixed; top: 0; left: 0; right: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 14px 18px; pointer-events: none; }
+  .bar > * { pointer-events: auto; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; height: 42px; padding: 0 18px; border-radius: 999px;
+    color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    background: rgba(20, 16, 50, 0.6); border: 1px solid rgba(190, 170, 255, 0.45); backdrop-filter: blur(6px); }
+  .pill:hover { background: rgba(120, 90, 220, 0.45); border-color: #b490ff; }
+  .pill:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  .pill svg { width: 18px; height: 18px; }
+  .title { font-weight: 700; font-size: 1rem; letter-spacing: -0.01em; text-shadow: 0 1px 8px rgba(10, 6, 30, 0.8); }
+
+  .note { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 2; margin: 0; max-width: calc(100vw - 32px);
+    padding: 8px 16px; border-radius: 999px; font-size: 0.85rem; color: #e6e1ff; text-align: center;
+    background: rgba(20, 16, 50, 0.6); border: 1px solid rgba(190, 170, 255, 0.25); transition: opacity 0.6s ease; }
+  .note.is-hidden { opacity: 0; pointer-events: none; }
+  @media (max-width: 520px) { .title { display: none; } }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="room" role="img" aria-label="Interactive 3D model of my workspace: me at my desk with two monitors, a whiteboard and a night-time city view">
+  <img class="room-poster" src="room/poster.jpg" alt="" />
+</div>
+
+<div class="bar">
+  <a class="pill" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+    Back to site
+  </a>
+  <span class="title">Praneet&rsquo;s workspace</span>
+</div>
+<p class="note" id="note" role="status">Loading the room&hellip;</p>
+
+<script type="module">
+  const el = document.getElementById('room');
+  const note = document.getElementById('note');
+  const fail = msg => { note.textContent = msg; note.classList.remove('is-hidden'); };
+  const hasGL = (() => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; } })();
+
+  if (!hasGL) {
+    fail('This browser can’t show the 3D room, so here is a still image instead.');
+  } else {
+    import('./room/room.js?v=20261112211518').then(({ mountRoom }) => {
+      const room = mountRoom(el, { base: 'room/', interactive: true, zoom: true, params: new URLSearchParams(location.search) });
+      return room.ready.then(() => {
+        const touch = matchMedia('(pointer: coarse)').matches;
+        note.textContent = touch ? 'Drag to look around · pinch to zoom' : 'Drag to look around · scroll to zoom';
+        const hide = () => note.classList.add('is-hidden');
+        el.addEventListener('pointerdown', hide, { once: true });
+        setTimeout(hide, 7000);
+      });
+    }).catch(e => { console.error('[room]', e); fail('The 3D room didn’t load. Showing a still image instead.'); });
+  }
+</script>
+</body>
+</html>
