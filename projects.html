@@ -487,6 +487,15 @@
       .nav-links a { font-size: 0.74rem; padding: 18px 0 16px; }
       .page-header { padding: 32px 0 28px; }
     }
+
+    /* Selected Projects: 3 per row on wide screens, 2 on tablets, 1 on phones */
+    .selected-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .selected-grid .card-desc { font-size: 0.85rem; }
+    @media (max-width: 1100px) { .selected-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .selected-grid { grid-template-columns: 1fr; } }
+
+    /* "My role" line in italics (label stays bold) */
+    .dim-role { font-style: italic; }
   </style>
 </head>
 <body>
@@ -628,7 +637,7 @@
         </div>
 
         <div class="research-entry">
-          <div class="research-thumb-wrapper"><img src="assets/openmonkeychallenge_teaser.png" alt="OpenMonkeyChallenge" /></div>
+          <div class="research-thumb-wrapper"><img src="assets/openmonkeychallenge_teaser.webp" alt="OpenMonkeyChallenge" /></div>
           <div class="research-content">
             <div class="research-title">OpenMonkeyChallenge</div>
             <div class="research-desc">
