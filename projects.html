@@ -14,7 +14,7 @@
   <title>Projects · Praneet Bala</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a1a1a'/><text y='72' x='50' text-anchor='middle' font-size='52' font-family='Inter,sans-serif' font-weight='700' fill='white'>PCB</text></svg>" />
   <style>
     *, *::before, *::after {
@@ -410,25 +410,109 @@
     .room-thumb { display: flex; align-items: center; justify-content: center; height: 180px; overflow: hidden;
       background: radial-gradient(260px 170px at 50% 55%, rgba(75, 51, 153, 0.6), transparent 75%), #121128; }
     .room-thumb img { height: 168px; width: auto; display: block; }
+
+    /* ══════════ Match the homepage: Sanzo Wada palette ══════════
+       Light Mauve #c7a3d9 · Violet #4b3399 · Indian Lake #d7344f · Dull Violet Black #15152b */
+    :root {
+      --wada-mauve: #c7a3d9;
+      --wada-violet: #4b3399;
+      --wada-lake: #d7344f;
+      --wada-black: #15152b;
+      --soft: #a8a3c4;
+    }
+    [data-theme="dark"] {
+      --bg: #15152b;
+      --text: #ece9f8;
+      --muted: #b3adcf;
+      --border: #2a2850;
+      --accent: #c7a3d9;
+      --accent-light: #262150;
+    }
+    body {
+      background:
+        radial-gradient(900px 520px at 18% -120px, rgba(75, 51, 153, 0.35), transparent 70%),
+        radial-gradient(700px 420px at 92% -80px, rgba(75, 51, 153, 0.18), transparent 70%),
+        var(--bg);
+      background-repeat: no-repeat;
+      background-color: var(--bg);
+    }
+
+    /* nav (copied from the homepage) */
+    nav { position: sticky; top: 0; z-index: 100; padding: 0 24px; background: rgba(21, 21, 43, 0.92);
+      backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1560px; margin: 0 auto; height: 56px; display: flex; align-items: center; gap: 20px; }
+    .nav-brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; color: var(--text);
+      text-decoration: none; font-weight: 700; font-size: 1.12rem; letter-spacing: -0.01em; }
+    .nav-brand svg { width: 28px; height: 28px; color: var(--wada-mauve); }
+    .nav-links { display: flex; gap: 34px; align-items: center; list-style: none; margin-left: auto; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.95rem; padding: 16px 2px 14px; display: inline-block;
+      border-bottom: 2px solid transparent; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--wada-mauve); }
+    .nav-links a.active { color: #fff; border-bottom-color: var(--wada-lake); }
+    .nav-brand:focus-visible, .nav-links a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+    /* page header */
+    .page-header { padding: 44px 0 40px; }
+    .page-header h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0; color: #fff; }
+    .page-rule { display: block; width: 62px; height: 6px; border-radius: 3px; margin: 18px 0 16px;
+      background: linear-gradient(90deg, #e2506a, #c22a45); }
+    .page-header p { font-size: 1.02rem; color: var(--muted); }
+
+    /* section labels in mauve, like the homepage headings */
+    .section-label { color: var(--wada-mauve); font-size: 0.85rem; letter-spacing: 0.1em; }
+    .projects-section + .projects-section { border-top-color: var(--border); }
+
+    /* research list + cards */
+    [data-theme="dark"] .research-entry { border-bottom-color: var(--border); }
+    [data-theme="dark"] .research-thumb-wrapper { background: #1c1b3a; }
+    [data-theme="dark"] .tool-card, [data-theme="dark"] .project-card { background: #1c1b3a; border-color: var(--border); }
+    .project-card { border-radius: 12px; }
+    .project-card:hover, .tool-card:hover { border-color: rgba(199, 163, 217, 0.45); box-shadow: 0 6px 22px rgba(75, 51, 153, 0.35); }
+    .research-title, .card-title { color: #fff; }
+    .research-desc, .card-desc { color: var(--muted); }
+    .tag { font-size: 0.775rem; padding: 3px 9px; }
+    .research-venue { color: var(--soft); }
+    .paper-link { color: var(--wada-mauve); }
+    .paper-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .dim-role strong { color: var(--text); }
+
+    /* footer */
+    footer { color: var(--soft); border-top-color: var(--border); }
+    [data-theme="dark"] footer a { color: var(--wada-mauve); }
+
+    @media (max-width: 860px) { .nav-brand span { display: none; } .nav-links { gap: 22px; } }
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 0.74rem; padding: 18px 0 16px; }
+      .page-header { padding: 32px 0 28px; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="header-bar" style="padding: 0 24px; border-bottom: 1px solid #e0e0e0; background: #fff; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-    <div style="max-width: 1200px; margin: 0 auto; height: 56px; display: flex; align-items: center;">
-      <a class="back-link" href="index.html" style="display:inline-flex;align-items:center;text-decoration:none;">
-        <span style="background:#1a1a1a;color:#fff;padding:5px 14px;border-radius:20px;font-weight:800;letter-spacing:0.04em;font-size:0.97rem;display:inline-flex;align-items:center;gap:7px;">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-          PCB
-        </span>
+  <!-- NAV (same as the homepage) -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Praneet Bala, home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 2.5 20.5 7v10L12 21.5 3.5 17V7z"/><path d="M3.5 7 12 11.5 20.5 7M12 11.5v10"/></svg>
+        <span>Praneet Bala</span>
       </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">Home</a></li>
+        <li><a href="projects.html" class="active" aria-current="page">Projects</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#service">Service</a></li>
+      </ul>
     </div>
-  </div>
+  </nav>
 
   <!-- PAGE HEADER -->
   <div class="container">
     <div class="page-header">
-      <h1>PROJECTS</h1>
+      <h1>Projects</h1>
+      <span class="page-rule" aria-hidden="true"></span>
       <p>A record of research, systems, and tools built across computer vision and generative modeling.</p>
     </div>
   </div>
@@ -618,7 +702,7 @@
             <div class="research-desc">
               A browser-based 3D pose keypoint viewer built with Three.js. Supports drag-and-drop JSON and NPY files, animated frame-by-frame playback, skeletal connections via adjacency matrix, motion trails, joint labels, and Bloom post-processing. Includes pre-built adjacency files for COCO 17-joint human and macaque skeletons.
             </div>
-            <p style="font-size:0.8rem;color:#888;font-style:italic;margin-top:6px;">Note: the online version supports JSON files only. NPY conversion requires running the tool locally.</p>
+            <p style="font-size:0.8rem;color:#a8a3c4;font-style:italic;margin-top:6px;">Note: the online version supports JSON files only. NPY conversion requires running the tool locally.</p>
             <div class="research-footer">
               <div class="tags">
                 <span class="tag">Three.js</span>
@@ -707,12 +791,12 @@
         </div>
 
         <div class="project-card">
-          <img src="assets/gaussian_teaser.png" alt="3D Gaussian Splatting reconstruction of garden scene" style="width:100%;height:180px;object-fit:cover;object-position:center;display:block;" />
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/turntable_poster.webp" style="width:100%;height:180px;object-fit:contain;background:#0d0e11;display:block;" aria-label="Turntable of a Gaussian-splat reconstruction: a Charizard figure and two artist mannequins rotating 360 degrees"><source src="assets/turntable_card.mp4" type="video/mp4" /></video>
           <div class="card-body">
-            <div class="card-title">3D Scene Reconstruction via Gaussian Splatting</div>
+            <div class="card-title">3D Object Reconstruction via Gaussian Splatting</div>
             <div class="card-desc">
               Built a video-to-3D reconstruction pipeline using COLMAP and Gaussian Splatting from turntable
-              sequences. Enables interactive neural rendering and scene-level optimization.
+              sequences, enabling interactive neural rendering of the reconstructed object.
               Precursor to the exo-to-ego pipeline.
             </div>
             <div class="tags">

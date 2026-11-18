@@ -1209,6 +1209,23 @@
 
     /* Blender credit under the hero room */
     .room-credit { margin: 2px 0 14px; font-size: 0.85rem; font-style: italic; letter-spacing: 0.01em; color: var(--hero-muted); text-align: center; }
+
+    /* projects grid after the reshuffle */
+    .projects-grid > .feature-card { margin-bottom: 20px; }
+    .projects-row2 + .projects-row2 { margin-top: 20px; }
+    .card-thumb.thumb-fixed { height: 240px; display: flex; align-items: center; justify-content: center; margin: 8px 8px 0; padding: 0; border-radius: 8px; overflow: hidden; }
+    .card-thumb.thumb-fixed img, .card-thumb.thumb-fixed video { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 0; }
+    .thumb-light { background: #ffffff; }
+    .thumb-dark { background: #0d0e11; }
+    .card-title-link { color: inherit !important; text-decoration: none; }
+    .card-title-link:hover { color: var(--wada-mauve) !important; }
+    .card-title-link svg { margin-left: 6px; vertical-align: -1px; opacity: 0.7; }
+    [data-theme="dark"] .venue-badge { display: inline-block; margin-top: 10px; font-size: 0.78rem; font-weight: 500; padding: 3px 10px; border-radius: 3px;
+      background: rgba(199, 163, 217, 0.08) !important; color: #c4bdd8 !important; }
+    .oms-video { aspect-ratio: 1080 / 432; }
+    .view-all { font-size: 1rem; font-weight: 500; text-decoration: none; color: var(--wada-mauve); }
+    .view-all:hover { text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 640px) { .card-thumb.thumb-fixed { height: 200px; } }
   </style>
 </head>
 <body>
@@ -1363,22 +1380,26 @@
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-thumb"><img src="assets/forecasting_teaser.png" alt="3D body motion forecasting teaser" /></div>
-          <div class="card-content">
-            <div class="card-title">Learning to Forecast Domain-Aware 3D Body Motion</div>
+        <div class="card feature-card">
+          <div class="feature-media">
+            <video class="feature-video oms-video" muted loop playsinline preload="none" width="1080" height="432"
+                   poster="assets/openmonkeystudio_poster.webp" data-src="assets/openmonkeystudio_clip.mp4"
+                   aria-label="OpenMonkeyStudio: four of the 62 camera views of macaques moving in the enclosure, next to the reconstructed 3D poses inside the calibrated camera rig"></video>
+          </div>
+          <div class="card-content feature-content">
+            <div class="card-title"><a href="https://www.nature.com/articles/s41467-020-18441-5" target="_blank" rel="noopener" class="card-title-link">OpenMonkeyStudio<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:5px;vertical-align:middle;opacity:0.4;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
             <div class="card-desc">
-              Self-supervised framework that jointly learns 3D motion reconstruction and future motion generation from 2D domain videos. Uses a spatiotemporal transformer (PoseFormer) for 2D-to-3D lifting and a latent diffusion model (BeLFusion) for long-term forecasting. Achieves competitive ADE/FDE on Human3.6M and outperforms baselines on cross-domain MPI-INF-3DHP without 3D domain supervision.
+              Engineered a 62-camera markerless motion capture system for high-fidelity 3D body tracking of freely moving macaques in unconstrained environments. Built an end-to-end pipeline spanning multi-view calibration, 2D pose estimation, and 3D triangulation. Released a public dataset of 195,228 annotated pose frames across 13 body landmarks and diverse activities.
             </div>
             <div class="card-footer">
               <div class="card-tags">
-                <span class="tag">PyTorch</span>
-                <span class="tag">Spatiotemporal Transformer</span>
-                <span class="tag">Latent Diffusion</span>
-                <span class="tag">Self-supervised</span>
-                <span class="tag">Domain Adaptation</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">MATLAB</span>
+                <span class="tag">Multi-view Geometry</span>
+                <span class="tag">3D Reconstruction</span>
+                <span class="tag">Pose Estimation</span>
               </div>
-              <span class="tag tag-status">Manuscript in preparation</span>
+              <span class="venue-badge">Nature Communications, 2020</span>
             </div>
           </div>
         </div>
@@ -1386,73 +1407,92 @@
         <div class="projects-row2">
 
           <div class="card">
-            <div class="card-thumb"><img src="assets/landmark_teaser.png" alt="Secondary landmark detection teaser" style="height: auto; object-fit: unset; object-position: right top;" /></div>
+            <div class="card-thumb thumb-fixed thumb-light"><img src="assets/forecasting_teaser.png" alt="3D body motion forecasting: observed frames with reconstructed skeletons, then predicted future skeletons" loading="lazy" /></div>
             <div class="card-content">
-              <div class="card-title">
-                <a href="https://link.springer.com/article/10.1007/s11263-023-01804-y" target="_blank" rel="noopener" style="color:#1a1a1a;text-decoration:none;">
-                  Self-supervised Secondary Landmark Detection<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:5px;vertical-align:middle;opacity:0.4;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
-              </div>
+              <div class="card-title">Learning to Forecast Domain-Aware 3D Body Motion</div>
               <div class="card-desc">
-                Self-supervised method using 3D representation learning and multiview contrastive learning to detect anatomically consistent secondary landmarks without manual annotation. Uses Procrustes-normalized triangulation and twin convolutional pose machines to enforce geometric and semantic consistency across views. Achieves PCKh@0.5 of 0.75 on OpenMonkeyPose, validated across macaques, humans, and flies with less than 10% labeled data.
+                Self-supervised framework that jointly learns 3D motion reconstruction and future motion generation from 2D domain videos. Uses a spatiotemporal transformer (PoseFormer) for 2D-to-3D lifting and a latent diffusion model (BeLFusion) for long-term forecasting. Achieves competitive ADE/FDE on Human3.6M and outperforms baselines on cross-domain MPI-INF-3DHP without 3D domain supervision.
               </div>
               <div class="card-footer">
                 <div class="card-tags">
-                  <span class="tag">TensorFlow</span>
-                  <span class="tag">Contrastive Learning</span>
-                  <span class="tag">Multi-view Geometry</span>
-                  <span class="tag">3D Representation Learning</span>
-                  <span class="tag">Pose Estimation</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">Spatiotemporal Transformer</span>
+                <span class="tag">Latent Diffusion</span>
+                <span class="tag">Self-supervised</span>
+                <span class="tag">Domain Adaptation</span>
                 </div>
-                <span class="venue-badge" style="display:inline-block;margin-top:10px;font-size:0.78rem;font-weight:500;color:#666;background:#f5f5f5;padding:3px 10px;border-radius:3px;">International Journal of Computer Vision, 2023</span>
+                <span class="tag tag-status">Manuscript in preparation</span>
               </div>
             </div>
           </div>
 
           <div class="card">
-            <div class="card-thumb"><img src="assets/openmonkeystudio_teaser.jpg" alt="OpenMonkeyStudio teaser" style="height: auto; object-fit: unset; object-position: center top;" /></div>
+            <div class="card-thumb thumb-fixed thumb-dark">
+              <video class="gs-video" muted loop playsinline preload="none" width="540" height="540" poster="assets/turntable_poster.webp" data-src="assets/turntable_card.mp4"
+                     aria-label="Turntable of a Gaussian-splat reconstruction: a Charizard figure and two artist mannequins rotating 360 degrees"></video>
+            </div>
             <div class="card-content">
-              <div class="card-title">
-                <a href="https://www.nature.com/articles/s41467-020-18441-5" target="_blank" rel="noopener" style="color:#1a1a1a;text-decoration:none;">
-                  OpenMonkeyStudio<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:5px;vertical-align:middle;opacity:0.4;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
-              </div>
+              <div class="card-title">3D Object Reconstruction via Gaussian Splatting</div>
               <div class="card-desc">
-                Engineered a 62-camera markerless motion capture system for high-fidelity 3D body tracking of freely moving macaques in unconstrained environments. Built an end-to-end pipeline spanning multi-view calibration, 2D pose estimation, and 3D triangulation. Released a public dataset of 195,228 annotated pose frames across 13 body landmarks and diverse activities.
+                Built a video-to-3D reconstruction pipeline using COLMAP and Gaussian Splatting from turntable sequences, enabling interactive neural rendering of the reconstructed object. Precursor to the exo-to-ego pipeline.
               </div>
               <div class="card-footer">
                 <div class="card-tags">
-                  <span class="tag">TensorFlow</span>
-                  <span class="tag">MATLAB</span>
-                  <span class="tag">Multi-view Geometry</span>
-                  <span class="tag">3D Reconstruction</span>
-                  <span class="tag">Pose Estimation</span>
+                <span class="tag">COLMAP</span>
+                <span class="tag">Gaussian Splatting</span>
+                <span class="tag">Neural Rendering</span>
+                <span class="tag">Python</span>
                 </div>
-                <span class="venue-badge" style="display:inline-block;margin-top:10px;font-size:0.78rem;font-weight:500;color:#666;background:#f5f5f5;padding:3px 10px;border-radius:3px;">Nature Communications, 2020</span>
               </div>
             </div>
           </div>
 
         </div>
 
-      </div>
-      <div class="card tool-card-side" style="margin-top:20px;display:flex;flex-direction:row;align-items:center;">
-        <video autoplay muted loop playsinline style="width:40%;height:260px;object-fit:contain;background:#0d0d14;display:block;border-radius:8px 0 0 8px;flex-shrink:0;">
-          <source src="assets/demo.mp4" type="video/mp4" />
-        </video>
-        <div class="card-content tool-card-side-content" style="padding-left:24px;">
-          <div class="card-title">
-            <span style="display:inline-block;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;background:#e8f5e9;color:#2e7d32;padding:2px 7px;border-radius:3px;margin-bottom:6px;">Tool</span><br />
-            Pose Keypoint Visualizer
-          </div>
-          <div class="card-desc">A browser-based 3D viewer for human and animal pose keypoints. Supports drag-and-drop JSON files, animated playback, skeletal connections, motion trails, and multiple themes.</div>
-          <p style="font-size:0.8rem;color:#a8a3c4;font-style:italic;margin-top:6px;">Note: the online version supports JSON files only. NPY conversion requires running the tool locally.</p>
-          <div class="card-footer">
-            <div class="card-links">
-              <a class="card-link" href="https://balapraneet.com/pose-keypoint-visualizer/" target="_blank" rel="noopener">Try it &rarr;</a>
+        <div class="projects-row2">
+
+          <div class="card">
+            <div class="card-thumb thumb-fixed thumb-light"><img src="assets/landmark_teaser.png" alt="Secondary landmark detection across macaques, flies and humans using multi-view 3D representation learning" loading="lazy" /></div>
+            <div class="card-content">
+              <div class="card-title"><a href="https://link.springer.com/article/10.1007/s11263-023-01804-y" target="_blank" rel="noopener" class="card-title-link">Self-supervised Secondary Landmark Detection<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:5px;vertical-align:middle;opacity:0.4;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
+              <div class="card-desc">
+                Self-supervised method using 3D representation learning and multiview contrastive learning to detect anatomically consistent secondary landmarks without manual annotation. Uses Procrustes-normalized triangulation and twin convolutional pose machines to enforce geometric and semantic consistency across views. Achieves PCKh@0.5 of 0.75 on OpenMonkeyPose, validated across macaques, humans, and flies with less than 10% labeled data.
+              </div>
+              <div class="card-footer">
+                <div class="card-tags">
+                <span class="tag">TensorFlow</span>
+                <span class="tag">Contrastive Learning</span>
+                <span class="tag">Multi-view Geometry</span>
+                <span class="tag">3D Representation Learning</span>
+                <span class="tag">Pose Estimation</span>
+                </div>
+                <span class="venue-badge">International Journal of Computer Vision, 2023</span>
+              </div>
             </div>
           </div>
+
+          <div class="card">
+            <div class="card-thumb thumb-fixed thumb-light"><img src="assets/openmonkeychallenge_teaser.png" alt="OpenMonkeyChallenge: a grid of annotated primate photographs from many species in naturalistic settings" loading="lazy" /></div>
+            <div class="card-content">
+              <div class="card-title"><a href="https://link.springer.com/article/10.1007/s11263-022-01698-2" target="_blank" rel="noopener" class="card-title-link">OpenMonkeyChallenge<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:5px;vertical-align:middle;opacity:0.4;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
+              <div class="card-desc">
+                Designed and released a large-scale benchmark for articulated body pose estimation across diverse primate subjects in naturalistic conditions. Dataset contains 111,529 annotated images with 17 body landmarks.
+              </div>
+              <div class="card-footer">
+                <div class="card-tags">
+                  <span class="tag">Benchmark Design</span>
+                  <span class="tag">Dataset Curation</span>
+                  <span class="tag">Pose Estimation</span>
+                  <span class="tag">Multi-species</span>
+                  <span class="tag">Community Challenge</span>
+                </div>
+                <span class="venue-badge">International Journal of Computer Vision, 2023</span>
+              </div>
+            </div>
+          </div>
+
         </div>
+
       </div>
 
       <div class="card tool-card-side game-card" style="margin-top:20px;display:flex;flex-direction:row;align-items:center;">
@@ -1480,7 +1520,7 @@
       </div>
 
       <div style="text-align: right; margin-top: 24px;">
-        <a href="projects.html" style="font-size: 1rem; color: #1a237e; font-weight: 500; text-decoration: none;">View all projects &rarr;</a>
+        <a href="projects.html" class="view-all">View all projects &rarr;</a>
       </div>
     </div>
   </section>
@@ -1743,19 +1783,21 @@
     })();
   </script>
   <script>
-    // Exo-to-Ego demo clip: loads and plays only while visible; reduced motion gets the still + controls.
+    // Homepage clips (Exo-to-Ego, OpenMonkeyStudio, turntable): load and play only while visible;
+    // reduced motion gets the poster with controls instead of autoplay.
     (function () {
-      var v = document.getElementById('exoDemo');
-      if (!v) return;
+      var vids = document.querySelectorAll('video[data-src]');
       var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var loaded = false;
-      function load() { if (!loaded) { v.src = v.dataset.src; loaded = true; } }
-      if (calm) { v.controls = true; v.preload = 'metadata'; load(); return; }
-      if (!('IntersectionObserver' in window)) { load(); v.autoplay = true; return; }
-      new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) { load(); var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); }
-        else v.pause();
-      }, { threshold: 0.25 }).observe(v);
+      vids.forEach(function (v) {
+        var loaded = false;
+        function load() { if (!loaded) { v.src = v.dataset.src; loaded = true; } }
+        if (calm) { v.controls = true; v.preload = 'metadata'; load(); return; }
+        if (!('IntersectionObserver' in window)) { load(); v.autoplay = true; return; }
+        new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) { load(); var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); }
+          else v.pause();
+        }, { threshold: 0.25 }).observe(v);
+      });
     })();
   </script>
 </body>
