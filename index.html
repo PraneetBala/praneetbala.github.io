@@ -1242,6 +1242,9 @@
     .pub-dissertation .pub-venue { display: block; }
     .pub-slides { margin-left: 10px; color: var(--wada-mauve); font-weight: 500; }
     @media (max-width: 640px) { .pub-dissertation { margin-left: 0; padding-left: 14px; } }
+    /* Dimension cover: keep the full 16:9 frame */
+    img.game-thumb { height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+    @media (max-width: 640px) { img.game-thumb { height: auto; } }
   </style>
 </head>
 <body>
